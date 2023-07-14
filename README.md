@@ -1,6 +1,11 @@
+<a name="readme-top"></a>
+
 <div align="center">
- 
-  <h3><b>hello-react</b></h3>
+
+  <h3><b>Final Capstone Front End</b></h3>
+
+<img src="./src/img/relief1.png" alt="coin_image" width="140"  height="auto" >
+  <br/>
 
 </div>
 
@@ -16,106 +21,125 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 hello-react <a name="about-project"></a>
+# 📖 Final Capstone Front End <a name="about-project"></a>
 
-**hello-react** is a React App where users can generate greetings
+This repository contains the frontend code for the Hotel Room Booking application. It is built using React and Redux, providing a user-friendly interface for booking a a hotel room. The repository includes components, actions, reducers, and API integration to interact with the backend server.
 
-## 🛠 Built With <a name="built-with"></a>
+> Implement React front end.
+> <br/>
+
+## 🚀 kanban board <a name="live-demo"></a>
+
+<div > 
+ 
+  <br/>
+
+- [kanban board Link](https://github.com/users/Jolak5/projects/2)
+
+- We are a team of four members.
+
+## 🛠 Built With <a name="built-with"> </a>
+
+> React.
+> Redux.
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Front-end</summary>
-  <ul>
-    <li>HTML</li>
-    <li>JSX</li>
-    <li>CSS3</li>
-    <li>React</li>
-    <li>Redux</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Back-end</summary>
-  <ul>
-    <li>N/A</li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li>N/A</li>
-  </ul>
-</details>
+> React.
 
 ### Key Features <a name="key-features"></a>
 
-- Display random messages
+- **[User login and authentication]**
+- **[Display hotel rooms]**
+- **[Display hotel room details]**
+- **[Allow users to book a hotel room]**
+- **[Display bookings list]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Final Capstone Back End <a name="final-capstone-back-end"></a>
+
+- [ FINAL CAPSTONE BACK END link](https://github.com/Jolak5/hotel-booking-app-backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://covid-19-stat.onrender.com/)
-
-## 🚀 Rails Link<a name="rails"></a>
-
-- [Rails Link](https://github.com/Jolak5/hello-rails/)
+- [Live Demo Link - Coming Soon]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Project Presentation <a name="project-presentation"></a>
+
+- [Project Presentation video link - Coming Soon]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
+to run on your localhost clone the project to local folder
 
-- clone this repo:https://github.com/Jolak5/hello-react
-- cd hello-react
-- run npm start to view the project
+> cd hotel-booking-app-frontend
 
-### Prerequisites
+## Available Scripts
 
-In order to run this project you need:
+In the project directory, you can run:
 
-- Git installed in desktop
-- Code editor of your choice i.e; Visual Studio Code
-- Browser of your choice i.e; Mozilla Firefox ,google chrome, etc
-- Terminal of your choice i.e; Git Bash
-<!--
-Example command:
+### `npm start`
 
-```sh
- gem install rails
-```
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
--->
+The page will reload when you make changes.
+You may also see any lint errors in the console.
 
 ### Setup
 
-Clone this repository to your desired folder:
-
-- use the git clone command with this [link](https://github.com/Jolak5/hello-react)
-- cd into hello-react
-- Switch branch using this command `git checkout dev`
-- Open index.html in your browser
-- You will be able to see a simple movie website with featured movies and series
-- Once you click on the comment button you should be able to see a pop-up modal with movie details and comment form
+> <p> git clone https://github.com/Jolak5/hotel-booking-app-frontend.git</p>
+> cd hotel-booking-app-frontend
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Prerequisites
+
+In order to run this project you only need:
+
+- latest web-browser
+- node.js and npm
+
+### Install
+
+To install this project in your local machine use
+
+> npm i
+> npm run build
+
+### Usage
+
+To run the project, execute the following command:
+
+> In visual studio code Go to dist folder then open index.html in live server.
+
 ## 👥 Authors <a name="authors"></a>
+
+👤 **Koshao Godfrey Kazungu**
+
+- GitHub: [@gKoshao-sys](https://github.com/Koshao-sys/)
+- Twitter: [@KoshaoKG](https://twitter.com/KoshaoKG)
+- LinkedIn: [koshaokazungu](https://www.linkedin.com/in/koshaokazungu/)
+
+👤 Isaac Gakure Wanyoike
+
+- GitHub: [@githubhandle](https://github.com/gaks1)
+- Twitter: [@twitterhandle](https://twitter.com/bopplov)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/isaac-wanyoike-1841a8172/)
 
 👤 **kayode Olatunji**
 
@@ -123,35 +147,34 @@ Clone this repository to your desired folder:
 - Twitter: [@twitterhandle](https://twitter.com/I_amBabakay)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/olatunji-kayode/)
 
+👤 **Amen Musingarimi**
+
+- GitHub: [@Amen-Musingarimi](https://github.com/Amen-Musingarimi)
+- Twitter: [@twitterhandle](https://twitter.com/MusingarimiT)
+- LinkedIn: [@atmusingarimi](https://www.linkedin.com/in/atmusingarimi/)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Load the UI Dynamically from data gotten through Api GET
-- clean and interactive
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **[Add user admin feature]**
 
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Jolak5/hotel-booking-app-frontend/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project Give a ⭐️!
+> If you like the project please give it star
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank:
-
-- Teammates
-- Mentors
-- Microverse guides
-- <a href="https://www.behance.net/sakwadesignstudio">Nelson Sakwa on Behance</a> for the design inspiration.
+> Thank you microverse community for the support and guidance.
+> Thank you [Murat Korkmaz on Behance](https://www.behance.net/gallery/31579789/Ballhead-App-%28Free-PSDs%29) for the Awesome Design Template.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
