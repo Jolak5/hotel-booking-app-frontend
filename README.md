@@ -1,14 +1,3 @@
-<a name="readme-top"></a>
-
-<div align="center">
-
-  <h3><b>Final Capstone Front End</b></h3>
-
-<img src="./src/img/relief1.png" alt="coin_image" width="140"  height="auto" >
-  <br/>
-
-</div>
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
