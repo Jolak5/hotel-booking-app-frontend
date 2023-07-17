@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router className="app">
+    <div className="main-container">
       <Navbar />
       <div className="sidebar">
         <Routes>
@@ -21,7 +21,7 @@ function App() {
           <Route path="Add-hotel-room" index element={<AddHotel />} />
         </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 
