@@ -1,5 +1,4 @@
 .nav-container {
-  background-color: #d3d3d3;
   height: 100%;
   padding: 2%;
   position: fixed;
@@ -11,6 +10,12 @@
   flex-direction: column;
   justify-content: center;
   gap: 14px;
+  transition: 1s;
+  transform: translate(-100vh);
+}
+
+header .nav-toggle {
+  transform: none;
 }
 
 .menu-icon {
