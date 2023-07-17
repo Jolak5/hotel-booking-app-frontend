@@ -4,17 +4,20 @@ import '../styles/SideBar.css';
 
 const SideBar = () => (
   <div className="nav-container">
-    <NavLink to="my-reservation" className="nav-link" activeclassname="active">
+    <NavLink to="/" className="nav-link" activeclassname="active">
+      Hotel Rooms
+    </NavLink>
+    <NavLink to="reserve-room" className="nav-link" activeclassname="active">
+      Reserve A Room
+    </NavLink>
+    <NavLink to="my-reservations" className="nav-link" activeclassname="active">
       My Reservations
     </NavLink>
-    <NavLink to="Add-hotel-room" className="nav-link" activeclassname="active">
-      Add hotel room
-    </NavLink>
-    <NavLink to="reserve" className="nav-link" activeclassname="active">
-      Reserve
+    <NavLink to="add-room" className="nav-link" activeclassname="active">
+      Add Hotel Room
     </NavLink>
     <NavLink to="delete-room" className="nav-link" activeclassname="active">
-      Delete Room
+      Delete Hotel Room
     </NavLink>
   </div>
 );
