@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
 import Hotel from './components/Hotel';
 import MyReservation from './components/MyReservation';
 import DeleteHotel from './components/DeleteHotel';
 import Reserve from './components/Reserve';
 import AddHotel from './components/AddHotel';
+import SideBar from './components/SideBar';
 import './App.css';
 
 function App() {
   return (
     <div className="main-container">
-      <Navbar />
-      <div className="sidebar">
+      <SideBar />
+      <div className="page-contents">
         <Routes>
           <Route path="/" index element={<Hotel />} />
           <Route path="my-reservation" index element={<MyReservation />} />
