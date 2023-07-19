@@ -11,7 +11,7 @@ const initialState = {
   token: getLocalStorage('token') || null,
   user: getLocalStorage('user') || null,
   tempUser: {
-    username: '',
+    name: '',
     password: '',
     confirmPassword: '',
   },
@@ -24,7 +24,10 @@ export const logInUser = createAsyncThunk(
   'auth/login',
   async (userInput, thunkAPI) => {
     try {
-      const response = await axios.post(`${baseUrl}/users/sign_in`, userInput);
+      const response = await axios.post(
+        'http://localhost:3000/sessions',
+        userInput
+      );
       // eslint-disable-next-line dot-notation
       const tempToken = response.headers.getAuthorization(/Bearer /)['input'];
       response.data.tempToken = tempToken;
@@ -38,7 +41,7 @@ export const logOutUser = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.delete(`${baseUrl}/users/sign_out`, {
+      const response = await axios.delete('http://localhost:3000/sessions', {
         headers: {
           authorization: thunkAPI.getState().auth.token,
         },
@@ -53,7 +56,10 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (userInput, thunkAPI) => {
     try {
-      const response = await axios.post(`${baseUrl}/users`, userInput);
+      const response = await axios.post(
+        'http://localhost:3000/users',
+        userInput
+      );
 
       return response.data;
     } catch (error) {
@@ -100,7 +106,7 @@ const authSlice = createSlice({
           user: payload.status.data,
           isLoading: false,
           tempUser: {
-            username: '',
+            name: '',
             password: '',
           },
         };
@@ -144,7 +150,7 @@ const authSlice = createSlice({
         ...state,
         isLoading: false,
         tempUser: {
-          username: '',
+          name: '',
           confirmPassword: '',
         },
       }))

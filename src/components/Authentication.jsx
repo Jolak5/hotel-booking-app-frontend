@@ -12,7 +12,7 @@ const Authentication = () => {
   const dispatch = useDispatch();
 
   const {
-    tempUser: { username, password, confirmPassword },
+    tempUser: { name, password, confirmPassword },
   } = useSelector((state) => state.auth);
 
   const formAuth = useSelector((state) => state.auth.formAuth);
@@ -21,7 +21,7 @@ const Authentication = () => {
     dispatch(
       logInUser({
         user: {
-          username,
+          name,
           password,
         },
       })
@@ -32,7 +32,7 @@ const Authentication = () => {
     dispatch(
       registerUser({
         user: {
-          username,
+          name,
           password,
         },
       })
@@ -63,10 +63,10 @@ const Authentication = () => {
 
         <input
           type="text"
-          placeholder="username"
-          id="username"
-          name="username"
-          value={username}
+          placeholder="name"
+          id="name"
+          name="name"
+          value={name}
           onChange={(e) => handleChange(e)}
           required
         />
