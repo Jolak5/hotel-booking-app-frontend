@@ -4,8 +4,9 @@ import HotelRooms from './components/HotelRooms';
 import ReservationsList from './components/ReservationsList';
 import DeleteHotel from './components/DeleteHotel';
 import ReserveForm from './components/ReserveForm';
-import AddHotel from './components/AddHotelRoom';
+import AddHotelRoom from './components/AddHotelRoom';
 import SideBar from './components/SideBar';
+import Authentication from './components/Authentication';
 import './App.css';
 
 function App() {
@@ -14,12 +15,16 @@ function App() {
       <SideBar />
       <div className="page-contents">
         <Routes>
-          <Route path="/" index element={<HotelRooms />} />
-          <Route path="reserve-room" index element={<ReserveForm />} />
-          <Route path="my-reservations" index element={<ReservationsList />} />
-          <Route path="add-room" index element={<AddHotel />} />
-          <Route path="Add-hotel-room" index element={<AddHotel />} />
-          <Route path="delete-room" index element={<DeleteHotel />} />
+          <Route path="/home" index element={<HotelRooms />} />
+          <Route
+            path="/reservations/my-reservations"
+            index
+            element={<ReservationsList />}
+          />
+          <Route path="/reservations/new" index element={<ReserveForm />} />
+          <Route path="/room/new" index element={<AddHotelRoom />} />
+          <Route path="rooms" index element={<DeleteHotel />} />
+          <Route exact path="/auth" element={<Authentication />} />
         </Routes>
       </div>
     </div>
