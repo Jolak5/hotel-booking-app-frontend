@@ -12,9 +12,11 @@ const SideBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
+
   const handleLogout = () => {
-    dispatch(logOutUser());
-    navigate('/');
+    dispatch(logOutUser()).then(() => {
+      navigate('/');
+    });
   };
 
   return (

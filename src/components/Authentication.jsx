@@ -7,9 +7,11 @@ import {
   toggleFormAuth,
 } from '../redux/auth/authenticationSlice';
 import AuthRedirect from '../components/AuthRedirect';
+import { useNavigate } from 'react-router-dom';
 
 const Authentication = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     tempUser: { name, password, confirmPassword },
@@ -17,7 +19,8 @@ const Authentication = () => {
 
   const formAuth = useSelector((state) => state.auth.formAuth);
 
-  const handleLogIn = () => {
+  const handleLogIn = (e) => {
+    e.preventDefault();
     dispatch(
       logInUser({
         user: {
@@ -25,7 +28,9 @@ const Authentication = () => {
           password,
         },
       })
-    );
+    ).then(() => {
+      navigate('/home');
+    });
   };
 
   const handleRegister = () => {

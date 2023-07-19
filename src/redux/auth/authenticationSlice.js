@@ -27,15 +27,19 @@ export const logInUser = createAsyncThunk(
         'http://localhost:3000/sessions',
         userInput
       );
-      // eslint-disable-next-line dot-notation
-      const tempToken = response.headers.getAuthorization(/Bearer /)['input'];
-      response.data.tempToken = tempToken;
-      return response.data;
+      const responseData = response.data;
+
+      // Adjust the code below based on the actual response structure
+      const token = responseData.token;
+      const user = responseData.user;
+
+      return { token, user };
     } catch (error) {
       return thunkAPI.rejectWithValue('something went wrong!');
     }
   }
 );
+
 export const logOutUser = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
@@ -97,12 +101,17 @@ const authSlice = createSlice({
         isLoading: true,
       }))
       .addCase(logInUser.fulfilled, (state, { payload }) => {
-        setLocalStorage('token', payload.tempToken);
-        setLocalStorage('user', payload.status.data);
+        const { token, user } = payload;
+
+        if (token && user) {
+          setLocalStorage('token', token);
+          setLocalStorage('user', user);
+        }
+
         return {
           ...state,
-          token: payload.tempToken,
-          user: payload.status.data,
+          token,
+          user,
           isLoading: false,
           tempUser: {
             name: '',
