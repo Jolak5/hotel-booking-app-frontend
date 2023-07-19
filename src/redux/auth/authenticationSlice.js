@@ -5,7 +5,6 @@ import {
   getLocalStorage,
   removeLocalStorage,
 } from '../../helpers/localStorage';
-import baseUrl from '../../helpers/urls';
 
 const initialState = {
   token: getLocalStorage('token') || null,
