@@ -29,7 +29,6 @@ export const logInUser = createAsyncThunk(
       );
       const responseData = response.data;
 
-      // Adjust the code below based on the actual response structure
       const token = responseData.token;
       const user = responseData.user;
 
@@ -73,6 +72,7 @@ export const registerUser = createAsyncThunk(
     }
   }
 );
+
 const authSlice = createSlice({
   name: 'authentication',
   initialState,
