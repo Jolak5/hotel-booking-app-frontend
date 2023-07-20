@@ -23,10 +23,8 @@ const Authentication = () => {
     e.preventDefault();
     dispatch(
       logInUser({
-        user: {
-          name,
-          password,
-        },
+        name,
+        password,
       })
     ).then(() => {
       navigate('/home');

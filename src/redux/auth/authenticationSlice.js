@@ -28,9 +28,12 @@ export const logInUser = createAsyncThunk(
         userInput
       );
       const responseData = response.data;
+      console.log(responseData);
 
       const token = responseData.token;
+      console.log(token);
       const user = responseData.user;
+      console.log(user);
 
       return { token, user };
     } catch (error) {
