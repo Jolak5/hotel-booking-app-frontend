@@ -20,6 +20,9 @@ export const postLogin = createAsyncThunk('home/postlogin', async (user, thunkAP
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
+      const { token } = data; // Assuming the token is present in the response data
+      localStorage.setItem('token', token);
       return data;
     }
     const error = await response.json();

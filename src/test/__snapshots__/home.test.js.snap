@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home matches snapshot 1`] = `
+<div>
+  <h1>
+    Hotels
+  </h1>
+  <div>
+    <a
+      href="/details/1"
+      onClick={[Function]}
+    >
+      <div>
+        <h2>
+          Hotel 1
+        </h2>
+        <p>
+          This is a description for Hotel 1.
+        </p>
+        <p>
+          431.9
+        </p>
+        <p>
+          4
+        </p>
+        <img
+          alt="true"
+          src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--70dd5f31c81314bc4a67fa2c2c0698786debcc95/image1.jpg"
+        />
+      </div>
+    </a>
+  </div>
+</div>
+`;
