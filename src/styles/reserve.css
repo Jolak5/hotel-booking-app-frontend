@@ -1,0 +1,27 @@
+.reserve-div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered-div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-form {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .reserve-form input,
+.reserve-form button {
+  width: 20%;
+} */
