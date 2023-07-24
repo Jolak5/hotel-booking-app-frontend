@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getLocalStorage } from '../../helpers/localStorage';
 
 const url = 'http://localhost:3000/hotels';
 
@@ -11,7 +12,7 @@ const initialState = {
 
 export const fetchhotels = createAsyncThunk('home/fetchhotels', async (_, thunkAPI) => {
   try {
-    const token = localStorage.getItem('token');
+    const token = getLocalStorage('token');
     const response = await fetch(`${url}`, {
       headers: {
         Authorization: `Bearer ${token}`,
