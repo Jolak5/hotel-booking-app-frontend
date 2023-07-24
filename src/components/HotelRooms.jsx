@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
@@ -35,21 +37,34 @@ const HotelRooms = () => {
     );
   }
 
+  const truncateDescription = (description, words = 4) => {
+    const wordArray = description.trim().split(' ');
+    const truncated = wordArray.slice(0, words).join(' ');
+    return wordArray.length > words ? `${truncated}...` : truncated;
+  };
+
   return (
     <>
       <div className={styles.homediv}>
         <h1 className={styles.hoteltitle}>Hotels</h1>
         <h3 className={styles.hotelsubtitle}>Please select a model</h3>
+        <div className={styles.dotedbordercontainer} />
         <div className={styles.hoteldiv}>
-          <Carousel showThumbs={false} emulateTouch dynamicHeight={false} showStatus={false} showIndicators={false} showArrows={true} infiniteLoop useKeyboardArrows centerMode centerSlidePercentage={100 / itemsToShow}>
+          <Carousel showThumbs={false} emulateTouch dynamicHeight={false} showStatus={false} showIndicators={false} showArrows infiniteLoop useKeyboardArrows centerMode centerSlidePercentage={100 / itemsToShow}>
             {hotels.map((hotel) => (
               <div key={hotel.id}>
                 <Link to={`/details/${hotel.id}`} className={styles.hotelinfo}>
                   <img className={styles.hotelimg} src={hotel.image.url} alt={hotel.name} />
-                  <h5 className={styles.removemargin}>{hotel.name}</h5>
+                  <h3 className={styles.hotelname}>{hotel.name}</h3>
+                  <div className={styles.dotedbordercontainer} />
                   <p className={styles.hotelDesc}>
-                    {hotel.description}
+                    {truncateDescription(hotel.description)}
                   </p>
+                  <div className={styles.hotelicons}>
+                    <FaFacebook className={styles.hotelicon} />
+                    <FaTwitter className={styles.hotelicon} />
+                    <AiOutlineMail className={styles.hotelicon} />
+                  </div>
                 </Link>
               </div>
             ))}
