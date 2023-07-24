@@ -1,9 +1,10 @@
 .hoteldiv {
     display: flex;
+    margin-top: 5%;
 }
 
 .hotelimg {
-    width: 150px;
+    width: 100px;
     height: 150px;
     border-radius: 50%;
 }
@@ -21,6 +22,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 .hotelinfo {
@@ -31,4 +33,12 @@ a {
 
 .removemargin {
     margin: 0;
+}
+
+.hoteltitle {
+    margin-top: 10%;
+}
+
+.hotelsubtitle{
+    margin-top: 5%;
 }

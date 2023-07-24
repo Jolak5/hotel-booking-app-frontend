@@ -38,8 +38,8 @@ const HotelRooms = () => {
   return (
     <>
       <div className={styles.homediv}>
-        <h1>Hotels</h1>
-        <h3>Please select a model</h3>
+        <h1 className={styles.hoteltitle}>Hotels</h1>
+        <h3 className={styles.hotelsubtitle}>Please select a model</h3>
         <div className={styles.hoteldiv}>
           <Carousel showThumbs={false} emulateTouch dynamicHeight={false} showStatus={false} showIndicators={false} showArrows={true} infiniteLoop useKeyboardArrows centerMode centerSlidePercentage={100 / itemsToShow}>
             {hotels.map((hotel) => (
