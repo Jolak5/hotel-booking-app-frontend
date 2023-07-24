@@ -1,0 +1,34 @@
+.hoteldiv{
+    display: flex;
+}
+
+.hotelimg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.hotelDesc{
+    color: gray;
+}
+
+.homediv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hotelinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.removemargin{
+    margin: 0;
+}

@@ -1,0 +1,39 @@
+.detailsimg{
+    width: 100%;
+    height: 100%;
+}
+
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.divimg{
+    width: 60%;
+}
+
+.divdetails{
+    width: 40%;
+}
+
+.detailstable{
+    width: 100%;
+    height: 100%;
+}
+
+.divtr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.reserve{
+    width: 80px;
+    height: 20px;
+    background-color: green;
+    color: white;
+    border-radius: 40px;
+}
+
+table{
+    border-spacing: 0;
+}

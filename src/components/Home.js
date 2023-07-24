@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchhotels } from '../redux/Home/homeSlice';
+import styles from './Home.module.css';
 
 const Home = () => {
   const {
@@ -23,23 +24,18 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.homediv}>
         <h1>Hotels</h1>
-        <div>
+        <h3>Please select a model</h3>
+        <div className={styles.hoteldiv}>
           {hotels.map((hotel) => (
             <Link key={hotel.id} to={`/details/${hotel.id}`}>
-              <div key={hotel.id}>
-                <h2>{hotel.name}</h2>
-                <p>
+              <div key={hotel.id} className={styles.hotelinfo}>
+                <img className={styles.hotelimg} src={hotel.image.url} alt="true" />
+                <h5 className={styles.removemargin}>{hotel.name}</h5>
+                <p className={styles.hotelDesc}>
                   {hotel.description}
                 </p>
-                <p>
-                  {hotel.price}
-                </p>
-                <p>
-                  {hotel.duration}
-                </p>
-                <img src={hotel.image.url} alt="true" />
               </div>
             </Link>
           ))}
