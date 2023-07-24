@@ -1,0 +1,30 @@
+.auth-main {
+  position: absolute;
+  top: 30%;
+  margin-left: 10%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px 100px 10px 10px;
+}
+
+.register,
+.login,
+.submit {
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  border: none;
+  background-color: aqua;
+}
+
+.submit {
+  background-color: transparent;
+  border: 1px solid green;
+}

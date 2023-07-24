@@ -25,21 +25,21 @@ export const logInUser = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/sessions',
-        userInput
+        userInput,
       );
       const responseData = response.data;
       console.log(responseData);
 
-      const token = responseData.token;
+      const { token } = responseData;
       console.log(token);
-      const user = responseData.user;
+      const { user } = responseData;
       console.log(user);
 
       return { token, user };
     } catch (error) {
       return thunkAPI.rejectWithValue('something went wrong!');
     }
-  }
+  },
 );
 
 export const logOutUser = createAsyncThunk(
@@ -55,7 +55,7 @@ export const logOutUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue('something went wrong!');
     }
-  }
+  },
 );
 export const registerUser = createAsyncThunk(
   'auth/register',
@@ -63,7 +63,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/users',
-        userInput
+        userInput,
       );
 
       return response.data;
@@ -73,7 +73,7 @@ export const registerUser = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue('something went wrong!');
     }
-  }
+  },
 );
 
 const authSlice = createSlice({
@@ -172,6 +172,7 @@ const authSlice = createSlice({
       }));
   },
 });
-export const { handleUpdate, toggleFormAuth, toRegister, toLogin } =
-  authSlice.actions;
+export const {
+  handleUpdate, toggleFormAuth, toRegister, toLogin,
+} = authSlice.actions;
 export default authSlice.reducer;

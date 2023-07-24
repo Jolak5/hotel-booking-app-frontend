@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   handleUpdate,
   logInUser,
   registerUser,
   toggleFormAuth,
 } from '../redux/auth/authenticationSlice';
-import AuthRedirect from '../components/AuthRedirect';
-import { useNavigate } from 'react-router-dom';
+import AuthRedirect from './AuthRedirect';
+import '../styles/Authentication.css';
 
 const Authentication = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Authentication = () => {
       logInUser({
         name,
         password,
-      })
+      }),
     ).then(() => {
       navigate('/home');
     });
@@ -38,7 +39,7 @@ const Authentication = () => {
           name,
           password,
         },
-      })
+      }),
     );
     dispatch(toggleFormAuth());
   };
@@ -95,24 +96,27 @@ const Authentication = () => {
             required
           />
         )}
-        <button type="submit">
-          {formAuth === 'login' ? 'Log In' : 'Register'}
-        </button>
-        {formAuth === 'login' ? (
-          <>
-            <p>Don&apos;t have an account?</p>
-            <button type="button" onClick={() => dispatch(toggleFormAuth())}>
-              Register
-            </button>
-          </>
-        ) : (
-          <>
-            <p>Already have an account?</p>
-            <button type="button" onClick={() => dispatch(toggleFormAuth())}>
-              Log In
-            </button>
-          </>
-        )}
+        <div className="buttons-div">
+          <button type="submit" className="submit">
+            {formAuth === 'login' ? 'Log In' : 'Register'}
+          </button>
+          {formAuth === 'login' ? (
+            <>
+              <p>Don&apos;t have an account?</p>
+              <button type="button" className="register" onClick={() => dispatch(toggleFormAuth())}>
+                Register
+              </button>
+            </>
+          ) : (
+            <>
+              <p>Already have an account?</p>
+              <button type="button" className="login" onClick={() => dispatch(toggleFormAuth())}>
+                Log In
+              </button>
+            </>
+          )}
+
+        </div>
       </form>
     </main>
   );
