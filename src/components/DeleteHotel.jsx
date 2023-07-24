@@ -1,7 +1,5 @@
 import React from 'react';
 
-const DeleteHotel = () => {
-  return <div>DeleteHotel</div>;
-};
+const DeleteHotel = () => <div>DeleteHotel</div>;
 
 export default DeleteHotel;
