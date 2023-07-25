@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
@@ -50,7 +51,27 @@ const HotelRooms = () => {
         <h3 className={styles.hotelsubtitle}>Please select a model</h3>
         <div className={styles.dotedbordercontainer} />
         <div className={styles.hoteldiv}>
-          <Carousel showThumbs={false} emulateTouch dynamicHeight={false} showStatus={false} showIndicators={false} showArrows infiniteLoop useKeyboardArrows centerMode centerSlidePercentage={100 / itemsToShow}>
+          <Carousel
+            showThumbs={false}
+            emulateTouch
+            dynamicHeight={false}
+            showStatus={false}
+            showIndicators={false}
+            infiniteLoop
+            useKeyboardArrows
+            centerMode
+            centerSlidePercentage={100 / itemsToShow}
+            renderArrowPrev={(onClickHandler, hasPrev, label) => hasPrev && (
+              <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.prev}`}>
+                <BiLeftArrow className={styles.svgicon} />
+              </button>
+            )}
+            renderArrowNext={(onClickHandler, hasNext, label) => hasNext && (
+            <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.next}`}>
+              <BiRightArrow className={styles.svgicon} />
+            </button>
+            )}
+          >
             {hotels.map((hotel) => (
               <div key={hotel.id}>
                 <Link to={`/details/${hotel.id}`} className={styles.hotelinfo}>

@@ -38,7 +38,7 @@ a {
 }
 
 .hoteltitle {
-    margin-top: 10%;
+    margin-top: 8%;
     color: gray;
 }
 
@@ -71,4 +71,61 @@ a {
     margin-top: 3%;
         width: 100px;
         align-self: center;
+}
+
+.carouselButton {
+    background: #0ab86d;
+    border: none;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px 50px 5px 5px;
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 2;
+        width: 60px;
+            height: 50px;
+}
+
+.carouselButton.prev {
+    left: 1px;
+        border-radius: 5px 50px 50px 5px;
+}
+
+.carouselButton.next {
+    right: 1px;
+        border-radius: 50px 5px 5px 50px;
+}
+
+.svgicon{
+    color: white;
+}
+
+@media screen and (min-width: 769px) {
+    .hotelname {
+            margin-top: 2%;
+        }
+    
+        .hoteltitle {
+            margin-top: 6%;
+        }
+    
+        .hotelsubtitle {
+            margin-top: 2%;
+        }
+                .hotelicons {
+                    margin-top: 2%;
+                }
+                                .dotedbordercontainer {
+                                    margin-top: 2%;
+                                }
+
+                                                                .hotelimg {
+                                                                    width: 70% !important;
+                                                                }
 }

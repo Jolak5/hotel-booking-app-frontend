@@ -21,10 +21,8 @@ const Details = () => {
   }
   return (
     <div className={styles.details}>
-      <div className={styles.divimg}>
-        {hoteldetails.image
+      {hoteldetails.image
         && <img className={styles.detimg} src={hoteldetails.image.url} alt={hoteldetails.name} />}
-      </div>
       <div className={styles.hoteltextdetails}>
         <h2 className={styles.hoteldetailsname}>{hoteldetails.name}</h2>
         <p className={styles.hoteldetailsdescription}>{hoteldetails.description}</p>
@@ -42,7 +40,7 @@ const Details = () => {
             days
           </span>
         </div>
-        <Link to="/hotels" className={styles.morehotelslink}>
+        <Link to="/home" className={styles.morehotelslink}>
           Discover More Hotels
           <FaGreaterThan />
         </Link>
