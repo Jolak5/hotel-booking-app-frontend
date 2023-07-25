@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import Welcome from './components/Welcome';
 import HotelRooms from './components/HotelRooms';
 import ReservationsList from './components/ReservationsList';
 import DeleteHotel from './components/DeleteHotel';
@@ -29,6 +30,7 @@ function App() {
       <SideBar />
       <div className="page-contents">
         <Routes>
+          <Route path="/" index element={<Welcome />} />
           <Route path="/home" index element={<HotelRooms />} />
           <Route
             path="/reservations/my-reservations"
