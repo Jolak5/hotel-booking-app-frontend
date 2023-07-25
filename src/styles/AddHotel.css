@@ -1,0 +1,81 @@
+.add-hotel-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.add-hotel-headings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.add-hotel-heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-hotel-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5656;
+}
+
+.add-hotel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #b4c424;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #fff;
+  color: #000;
+  opacity: 1;
+}
+
+.text-input,
+.input-description {
+  width: 100%;
+}
+
+.input-description {
+  height: 100px;
+}
+
+.number-inputs-container {
+  display: flex;
+  gap: 2%;
+}
+
+.number-input {
+  width: 49%;
+  padding-right: 0;
+}
+
+.add-hotel-btn {
+  width: 30%;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #b4c424;
+  border: none;
+  cursor: pointer;
+}
+
+.add-hotel-btn:hover {
+  font-size: 14px;
+  background-color: #96a31b;
+}
