@@ -36,7 +36,7 @@ export const createHotel = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
-  }
+  },
 );
 
 const newSlice = createSlice({
