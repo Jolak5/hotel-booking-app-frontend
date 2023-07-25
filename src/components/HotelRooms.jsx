@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { FaFacebook, FaTwitter } from 'react-icons/fa';
-import { AiOutlineMail } from 'react-icons/ai';
+import {
+  FaFacebook, FaTwitter,
+} from 'react-icons/fa';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { AiOutlineMail } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import Carousel from 'nuka-carousel';
 import { fetchhotels } from '../redux/Home/homeSlice';
 import styles from '../styles/Home.module.css';
 
@@ -13,22 +14,26 @@ const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
   const dispatch = useDispatch();
 
-  const [itemsToShow, setItemsToShow] = useState(window.innerWidth > 768 ? 3 : 1);
+  const getSlidesToShow = () => {
+    const width = window.innerWidth;
 
-  const handleResize = () => {
-    setItemsToShow(window.innerWidth > 768 ? 3 : 1);
+    if (width > 768) {
+      return 3;
+    }
+    return 1;
   };
+
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
 
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchhotels());
     }
-
+    const handleResize = () => setSlidesToShow(getSlidesToShow());
     window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    // Cleanup the event listener
+    return () => window.removeEventListener('resize', handleResize);
   }, [dispatch, fetched]);
 
   if (isLoading) {
@@ -51,42 +56,33 @@ const HotelRooms = () => {
         <div className={styles.dotedbordercontainer} />
         <div className={styles.hoteldiv}>
           <Carousel
-            showThumbs={false}
-            emulateTouch
-            dynamicHeight={false}
-            showStatus={false}
-            showIndicators={false}
-            infiniteLoop
-            useKeyboardArrows
-            centerMode
-            centerSlidePercentage={100 / itemsToShow}
-            renderArrowPrev={(onClickHandler, hasPrev, label) => hasPrev && (
-              <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.prev}`}>
+            slidesToShow={slidesToShow}
+            renderCenterLeftControls={({ previousSlide }) => (
+              <button type="button" className={`${styles.carouselButton} ${styles.carouselButtonprev}`} onClick={previousSlide}>
                 <BiLeftArrow className={styles.svgicon} />
               </button>
             )}
-            renderArrowNext={(onClickHandler, hasNext, label) => hasNext && (
-            <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.next}`}>
-              <BiRightArrow className={styles.svgicon} />
-            </button>
+            renderCenterRightControls={({ nextSlide }) => (
+              <button type="button" className={`${styles.carouselButton} ${styles.carouselButtonnext}`} onClick={nextSlide}>
+                <BiRightArrow className={styles.svgicon} />
+              </button>
             )}
+            renderBottomCenterControls={null}
           >
             {hotels.map((hotel) => (
-              <div key={hotel.id}>
-                <Link to={`/details/${hotel.id}`} className={styles.hotelinfo}>
-                  <img className={styles.hotelimg} src={hotel.image.url} alt={hotel.name} />
-                  <h3 className={styles.hotelname}>{hotel.name}</h3>
-                  <div className={styles.dotedbordercontainer} />
-                  <p className={styles.hotelDesc}>
-                    {truncateDescription(hotel.description)}
-                  </p>
-                  <div className={styles.hotelicons}>
-                    <FaFacebook className={styles.hotelicon} />
-                    <FaTwitter className={styles.hotelicon} />
-                    <AiOutlineMail className={styles.hotelicon} />
-                  </div>
-                </Link>
-              </div>
+              <Link key={hotel.id} to={`/details/${hotel.id}`} className={styles.hotelinfo}>
+                <img className={styles.hotelimg} src={hotel.image.url} alt={hotel.name} />
+                <h3 className={styles.hotelname}>{hotel.name}</h3>
+                <div className={styles.dotedbordercontainer} />
+                <p className={styles.hotelDesc}>
+                  {truncateDescription(hotel.description)}
+                </p>
+                <div className={styles.hotelicons}>
+                  <FaFacebook className={styles.hotelicon} />
+                  <FaTwitter className={styles.hotelicon} />
+                  <AiOutlineMail className={styles.hotelicon} />
+                </div>
+              </Link>
             ))}
           </Carousel>
         </div>

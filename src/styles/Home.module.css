@@ -82,9 +82,7 @@ a {
   display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 50px 50px 5px 5px;
   font-size: 16px;
-  position: absolute;
   top: 30%;
   transform: translateY(-50%);
   z-index: 2;
@@ -92,12 +90,12 @@ a {
   height: 50px;
 }
 
-.carouselButton.prev {
+.carouselButtonprev {
   left: 1px;
   border-radius: 5px 50px 50px 5px;
 }
 
-.carouselButton.next {
+.carouselButtonnext {
   right: 1px;
   border-radius: 50px 5px 5px 50px;
 }
