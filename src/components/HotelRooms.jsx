@@ -7,7 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
 import { fetchhotels } from '../redux/Home/homeSlice';
-import styles from './Home.module.css';
+import styles from '../styles/Home.module.css';
 
 const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
@@ -47,7 +47,7 @@ const HotelRooms = () => {
   return (
     <>
       <div className={styles.homediv}>
-        <h1 className={styles.hoteltitle}>Hotels</h1>
+        <h1 className={styles.hoteltitle}>Hotel Rooms</h1>
         <h3 className={styles.hotelsubtitle}>Please select a model</h3>
         <div className={styles.dotedbordercontainer} />
         <div className={styles.hoteldiv}>

@@ -18,7 +18,6 @@ export const fetchHotel = createAsyncThunk('details/fetchhotels', async (id, thu
       },
     });
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);

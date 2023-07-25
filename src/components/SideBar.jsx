@@ -81,6 +81,7 @@ const SideBar = () => {
         )}
         {isAuthenticated && (
           <button
+            className="logout"
             type="button"
             onClick={() => {
               handleLogout();

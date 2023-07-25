@@ -7,7 +7,6 @@ export const getLocalStorage = (key) => {
   try {
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error parsing JSON from local storage', error);
     return null;
   }
 };
