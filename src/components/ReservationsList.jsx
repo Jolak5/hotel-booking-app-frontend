@@ -26,7 +26,7 @@ export default function ReservationsList() {
             <p>
               User Name:
               {' '}
-              {reservation.hotel.name}
+
             </p>
           </div>
         ))
