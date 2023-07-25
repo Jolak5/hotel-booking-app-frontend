@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createHotel } from '../redux/hotel/newhotelSlice';
+import '../styles/AddHotel.css';
 
 const AddHotel = () => {
   const dispatch = useDispatch();
