@@ -46,4 +46,17 @@ describe('Home', () => {
         expect(elements.length).toBeGreaterThan(0);
     });
 
+
+    test('matches snapshot', () => {
+        const tree = renderer
+            .create(
+                <Provider store={store}>
+                    <Router>
+                        <HotelRooms />
+                    </Router>
+                </Provider>,
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
