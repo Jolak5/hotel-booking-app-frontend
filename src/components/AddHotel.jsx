@@ -35,7 +35,7 @@ const AddHotel = () => {
       <div className="add-hotel-headings-container">
         <h2 className="add-hotel-heading">Add Hotel</h2>
         <p className="add-hotel-text">
-          Show off your hotel's breathtaking views and top-notch service
+          Show off your hotel&apos;s breathtaking views and top-notch service
         </p>
       </div>
       <form action="submt" className="add-hotel-form" onSubmit={handleSubmit}>
