@@ -92,12 +92,12 @@ a {
   height: 50px;
 }
 
-.carouselButton.prev {
+.carouselButtonprev {
   left: 1px;
   border-radius: 5px 50px 50px 5px;
 }
 
-.carouselButton.next {
+.carouselButtonnext {
   right: 1px;
   border-radius: 50px 5px 5px 50px;
 }
@@ -106,7 +106,11 @@ a {
   color: white;
 }
 
-@media screen and (min-width: 769px) {
+.slider {
+  width: 50vw;
+}
+
+@media screen and (min-width: 768px) {
   .hotelname {
     margin-top: 2%;
   }
@@ -129,5 +133,9 @@ a {
 
   .hotelimg {
     width: 70% !important;
+  }
+
+  .slider {
+    width: 86vw;
   }
 }

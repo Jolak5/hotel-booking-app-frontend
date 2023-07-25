@@ -1,35 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { fetchhotels } from '../redux/Home/homeSlice';
 import styles from '../styles/Home.module.css';
+
+const CustomPrevButton = ({ onClick }) => (
+  <button
+    type="button"
+    className={`${styles.carouselButton} ${styles.carouselButtonnext}`}
+    onClick={onClick}
+  >
+    <BiRightArrow className={styles.svgicon} />
+  </button>
+);
+
+CustomPrevButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+const CustomNextButton = ({ onClick }) => (
+  <button
+    type="button"
+    className={`${styles.carouselButton} ${styles.carouselButtonprev}`}
+    onClick={onClick}
+  >
+    <BiLeftArrow className={styles.svgicon} />
+  </button>
+);
+
+CustomNextButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
   const dispatch = useDispatch();
 
-  const [itemsToShow, setItemsToShow] = useState(window.innerWidth > 768 ? 3 : 1);
-
-  const handleResize = () => {
-    setItemsToShow(window.innerWidth > 768 ? 3 : 1);
-  };
-
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchhotels());
     }
+  }, [dispatch, fetched]); // Added itemsToShow here
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [dispatch, fetched]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    nextArrow: <CustomPrevButton />,
+    prevArrow: <CustomNextButton />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+  };
 
   if (isLoading) {
     return (
@@ -50,26 +88,16 @@ const HotelRooms = () => {
         <h3 className={styles.hotelsubtitle}>Please select a model</h3>
         <div className={styles.dotedbordercontainer} />
         <div className={styles.hoteldiv}>
-          <Carousel
-            showThumbs={false}
-            emulateTouch
-            dynamicHeight={false}
-            showStatus={false}
-            showIndicators={false}
-            infiniteLoop
-            useKeyboardArrows
-            centerMode
-            centerSlidePercentage={100 / itemsToShow}
-            renderArrowPrev={(onClickHandler, hasPrev, label) => hasPrev && (
-              <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.prev}`}>
-                <BiLeftArrow className={styles.svgicon} />
-              </button>
-            )}
-            renderArrowNext={(onClickHandler, hasNext, label) => hasNext && (
-            <button type="button" onClick={onClickHandler} title={label} className={`${styles.carouselButton} ${styles.next}`}>
-              <BiRightArrow className={styles.svgicon} />
-            </button>
-            )}
+          <Slider
+            className={styles.slider}
+            dots={settings.dots}
+            infinite={settings.infinite}
+            speed={settings.speed}
+            slidesToShow={settings.slidesToShow}
+            slidesToScroll={settings.slidesToScroll}
+            nextArrow={settings.nextArrow}
+            prevArrow={settings.prevArrow}
+            responsive={settings.responsive}
           >
             {hotels.map((hotel) => (
               <div key={hotel.id}>
@@ -88,7 +116,7 @@ const HotelRooms = () => {
                 </Link>
               </div>
             ))}
-          </Carousel>
+          </Slider>
         </div>
       </div>
     </>
