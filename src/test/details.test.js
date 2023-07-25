@@ -46,4 +46,17 @@ describe('Details', () => {
         );
         expect(getByText('Hotel 2')).toBeInTheDocument();
     });
+
+    test('matches snapshot', () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <MemoryRouter initialEntries={[`/${hotelId}`]}>
+                    <Routes>
+                        <Route path="/:id" element={<Details />} />
+                    </Routes>
+                </MemoryRouter>
+            </Provider>,
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
