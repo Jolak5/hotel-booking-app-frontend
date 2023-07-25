@@ -31,7 +31,7 @@ function AddHotelForm() {
       <input type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
       <input type="number" placeholder="Duration" value={duration} onChange={(e) => setDuration(e.target.value)} />
       <input type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-          <input type="file" onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange} />
       <button type="submit">Add Hotel</button>
     </form>
   );
