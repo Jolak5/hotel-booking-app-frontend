@@ -5,7 +5,7 @@ import HotelRooms from './components/HotelRooms';
 import ReservationsList from './components/ReservationsList';
 import DeleteHotel from './components/DeleteHotel';
 import ReserveForm from './components/ReserveForm';
-import AddHotelRoom from './components/AddHotelRoom';
+import AddHotel from './components/AddHotel';
 import SideBar from './components/SideBar';
 import Authentication from './components/Authentication';
 import { logInUser } from './redux/auth/authenticationSlice';
@@ -36,7 +36,7 @@ function App() {
             element={<ReservationsList />}
           />
           <Route path="/reservations/new" index element={<ReserveForm />} />
-          <Route path="/room/new" index element={<AddHotelRoom />} />
+          <Route path="/room/new" index element={<AddHotel />} />
           <Route path="rooms" index element={<DeleteHotel />} />
           <Route exact path="/auth" element={<Authentication />} />
         </Routes>
