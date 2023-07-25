@@ -22,6 +22,12 @@ export default function ReservationsList() {
         reservations.map((reservation) => (
           <div key={reservation.id}>
             <p>{reservation.reservation_date}</p>
+            <p>{reservation.user_id}</p>
+            <p>
+              User Name:
+              {' '}
+              {reservation.hotel.name}
+            </p>
           </div>
         ))
       ) : (

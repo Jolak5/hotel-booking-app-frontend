@@ -5,7 +5,7 @@ const postDataToApi = async () => {
   const data = {
     user_id: 1,
     hotel_id: 1,
-    reservation_date: '13/12/1995',
+    reservation_date: '1995-12-13',
   };
 
   try {
