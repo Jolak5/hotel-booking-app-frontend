@@ -17,22 +17,22 @@ export default function ReservationsList() {
     );
   }
   return (
-    <div>
-      {reservations && reservations.length > 0 ? (
-        reservations.map((reservation) => (
-          <div key={reservation.id}>
-            <p>{reservation.reservation_date}</p>
-            <p>{reservation.user_id}</p>
-            <p>
-              User Name:
-              {' '}
+    <div className="reservation-container">
+      <div className="reservation-list">
+        {reservations && reservations.length > 0 ? (
+          reservations.map((reservation) => (
+            <div key={reservation.id} className="reservation-item">
+              <img src={reservation.hotel.image} alt={reservation.hotel.name} />
+              <h1>{reservation.hotel.name}</h1>
+              <p>{reservation.reservation_date}</p>
+              <p>{reservation.duration}</p>
+            </div>
+          ))
+        ) : (
+          <p>It is empty</p>
+        )}
+      </div>
 
-            </p>
-          </div>
-        ))
-      ) : (
-        <p>It is empty</p>
-      )}
     </div>
 
   );

@@ -8,6 +8,7 @@ const postDataToApi = async () => {
     user_id: 1,
     hotel_id: 1,
     reservation_date: '1995-12-14',
+    duration: 2,
   };
 
   try {
@@ -35,6 +36,7 @@ const ReserveForm = () => (
         Please note, you can only ask for refund 48 hours after booking.
       </p>
       <form className="reserve-form">
+
         <input
           type="date"
           id="dateInput"

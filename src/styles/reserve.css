@@ -21,7 +21,24 @@
   flex-direction: row;
 }
 
-/* .reserve-form input,
-.reserve-form button {
-  width: 20%;
-} */
+.reservation-list {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.reservation-item img {
+  width: 250px;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+  }
+
+  .reservation-item img {
+    width: 250px;
+  }
+}
