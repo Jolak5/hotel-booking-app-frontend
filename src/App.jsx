@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import Welcome from './components/Welcome';
 import HotelRooms from './components/HotelRooms';
 import ReservationsList from './components/ReservationsList';
 import DeleteHotel from './components/DeleteHotel';
 import ReserveForm from './components/ReserveForm';
-import AddHotelRoom from './components/AddHotelRoom';
+import AddHotel from './components/AddHotel';
 import SideBar from './components/SideBar';
 import Authentication from './components/Authentication';
 import Details from './components/Details';
@@ -30,6 +31,7 @@ function App() {
       <SideBar />
       <div className="page-contents">
         <Routes>
+          <Route path="/" index element={<Welcome />} />
           <Route path="/home" index element={<HotelRooms />} />
           <Route
             path="/reservations/my-reservations"
@@ -37,7 +39,7 @@ function App() {
             element={<ReservationsList />}
           />
           <Route path="/reservations/new" index element={<ReserveForm />} />
-          <Route path="/room/new" index element={<AddHotelRoom />} />
+          <Route path="/room/new" index element={<AddHotel />} />
           <Route path="rooms" index element={<DeleteHotel />} />
           <Route exact path="/auth" element={<Authentication />} />
           <Route path="/details/:id" element={<Details />} />
