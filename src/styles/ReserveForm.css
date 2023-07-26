@@ -117,7 +117,6 @@
 @media screen and (max-width: 767px) {
   .add-reservation-container {
     grid-template-columns: 1fr;
-    height: fit-content;
   }
 
   .add-hotel-headings-container {
