@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getLocalStorage } from '../../helpers/localStorage';
 
-const url = 'http://localhost:3000//hotel';
+const url = 'http://localhost:3000//hotels/';
 
 export const deleteHotel = createAsyncThunk(
   'delete/deleteHotel',
   async (hotelID) => {
     const token = getLocalStorage('token');
     const response = await fetch(`${url}${hotelID}`, {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

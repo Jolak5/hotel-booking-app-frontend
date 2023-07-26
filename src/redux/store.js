@@ -13,6 +13,7 @@ const store = configureStore({
     new: newReducer,
     home: homeReducer,
     details: detailsReducer,
+    delete: deleteReducer,
   },
 });
 
