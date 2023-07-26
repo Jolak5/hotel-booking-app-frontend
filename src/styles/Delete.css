@@ -1,0 +1,27 @@
+.main-del-container {
+    margin: auto;
+    margin-top: auto;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.delete-container {
+    display: flex;
+    gap: 60px;
+    border: 1px solid #b4c424;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.delete-image {
+    border-radius: 50%;
+    border: 2px solid #b4c424;
+    width: 100px;
+    height: 100px;
+}
