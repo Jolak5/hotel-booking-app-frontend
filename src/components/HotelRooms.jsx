@@ -11,11 +11,11 @@ import styles from '../styles/Home.module.css';
 
 const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
-  console.log(hotels);
+
   const dispatch = useDispatch();
 
   const [itemsToShow, setItemsToShow] = useState(
-    window.innerWidth > 768 ? 3 : 1
+    window.innerWidth > 768 ? 3 : 1,
   );
 
   const handleResize = () => {
@@ -29,7 +29,6 @@ const HotelRooms = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -66,30 +65,26 @@ const HotelRooms = () => {
             useKeyboardArrows
             centerMode
             centerSlidePercentage={100 / itemsToShow}
-            renderArrowPrev={(onClickHandler, hasPrev, label) =>
-              hasPrev && (
-                <button
-                  type="button"
-                  onClick={onClickHandler}
-                  title={label}
-                  className={`${styles.carouselButton} ${styles.prev}`}
-                >
-                  <BiLeftArrow className={styles.svgicon} />
-                </button>
-              )
-            }
-            renderArrowNext={(onClickHandler, hasNext, label) =>
-              hasNext && (
-                <button
-                  type="button"
-                  onClick={onClickHandler}
-                  title={label}
-                  className={`${styles.carouselButton} ${styles.next}`}
-                >
-                  <BiRightArrow className={styles.svgicon} />
-                </button>
-              )
-            }
+            renderArrowPrev={(onClickHandler, hasPrev, label) => hasPrev && (
+            <button
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              className={`${styles.carouselButton} ${styles.prev}`}
+            >
+              <BiLeftArrow className={styles.svgicon} />
+            </button>
+            )}
+            renderArrowNext={(onClickHandler, hasNext, label) => hasNext && (
+            <button
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              className={`${styles.carouselButton} ${styles.next}`}
+            >
+              <BiRightArrow className={styles.svgicon} />
+            </button>
+            )}
           >
             {hotels.map((hotel) => (
               <div key={hotel.id}>

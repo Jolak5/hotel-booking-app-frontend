@@ -26,7 +26,7 @@ const Authentication = () => {
       logInUser({
         name,
         password,
-      })
+      }),
     ).then(() => {
       navigate('/home');
     });
@@ -39,7 +39,7 @@ const Authentication = () => {
           name,
           password,
         },
-      })
+      }),
     );
     dispatch(toggleFormAuth());
   };
