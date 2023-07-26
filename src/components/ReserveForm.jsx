@@ -52,7 +52,7 @@ const ReserveForm = () => {
     }));
     navigate('/reservations/my-reservations', {
       state: {
-        directAccess: true,
+        directAccess: false,
       },
     });
   };

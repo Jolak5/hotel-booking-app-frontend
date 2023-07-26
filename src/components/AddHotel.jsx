@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { createHotel } from '../redux/hotel/newhotelSlice';
 import '../styles/AddHotel.css';
 
 const AddHotel = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
@@ -28,12 +30,17 @@ const AddHotel = () => {
       image,
     };
     dispatch(createHotel(newHotel));
+    navigate('/home', {
+      state: {
+        directAccess: false,
+      },
+    });
   };
 
   return (
     <div className="add-hotel-container">
       <div className="add-hotel-headings-container">
-        <h2 className="add-hotel-heading">Add Hotel</h2>
+        <h2 className="add-hotel-heading">Add Hotel Room</h2>
         <p className="add-hotel-text">
           Show off your hotel&apos;s breathtaking views and top-notch service
         </p>
@@ -42,7 +49,7 @@ const AddHotel = () => {
         <input
           type="text"
           className="text-input input"
-          placeholder="Hotel Name"
+          placeholder="Hotel Room Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
           name="name"

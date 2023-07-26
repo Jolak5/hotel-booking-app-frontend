@@ -5,15 +5,16 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { fetchhotels } from '../redux/Home/homeSlice';
 import styles from '../styles/Home.module.css';
 
 const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
-
+  const location = useLocation();
   const dispatch = useDispatch();
 
+  const { directAcess } = location.state || {};
   const [itemsToShow, setItemsToShow] = useState(
     window.innerWidth > 768 ? 3 : 1,
   );
@@ -26,14 +27,18 @@ const HotelRooms = () => {
     if (!fetched) {
       dispatch(fetchhotels());
     }
-    console.log(hotels);
-
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, fetched]);
+  }, [dispatch, fetched, hotels]);
+
+  useEffect(() => {
+    if (!directAcess) {
+      dispatch(fetchhotels());
+    }
+  }, [dispatch, directAcess]);
 
   if (isLoading) {
     return <p>Loading...</p>;
