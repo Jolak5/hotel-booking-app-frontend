@@ -12,7 +12,7 @@ import styles from '../styles/Home.module.css';
 const HotelRooms = () => {
   const { fetched, isLoading, hotels } = useSelector((state) => state.home);
   const dispatch = useDispatch();
-
+  console.log(hotels.length);
   const [itemsToShow, setItemsToShow] = useState(window.innerWidth > 768 ? 3 : 1);
 
   const handleResize = () => {
@@ -23,6 +23,7 @@ const HotelRooms = () => {
     if (!fetched) {
       dispatch(fetchhotels());
     }
+    console.log(hotels);
 
     window.addEventListener('resize', handleResize);
 
