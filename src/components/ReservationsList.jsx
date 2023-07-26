@@ -77,17 +77,18 @@ export default function ReservationsList() {
                 <h1 className={styles.hotelname}>{reservation.hotel.name}</h1>
                 <p className={styles.hotelDesc}>{reservation.reservation_date}</p>
                 <p>{reservation.duration}</p>
+                <div className={styles.hotelicons}>
+                  <FaFacebook className={styles.hotelicon} />
+                  <FaTwitter className={styles.hotelicon} />
+                  <AiOutlineMail className={styles.hotelicon} />
+                </div>
+
               </div>
+
             ))
           ) : (
             <p>It is empty</p>
           )}
-
-          <div className={styles.hotelicons}>
-            <FaFacebook className={styles.hotelicon} />
-            <FaTwitter className={styles.hotelicon} />
-            <AiOutlineMail className={styles.hotelicon} />
-          </div>
 
         </Carousel>
         {' '}
