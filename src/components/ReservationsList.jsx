@@ -71,7 +71,7 @@ export default function ReservationsList() {
               <div key={reservation.id}>
                 <img
                   className={styles.hotelimg}
-                  src={reservation.hotel.image}
+                  src={reservation.hotel.image.url}
                   alt={reservation.hotel.name}
                 />
                 <h1 className={styles.hotelname}>{reservation.hotel.name}</h1>
