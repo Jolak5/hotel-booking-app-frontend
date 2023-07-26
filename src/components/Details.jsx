@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaGreaterThan } from 'react-icons/fa';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchHotel } from '../redux/Details/detailsSlice';
 import styles from '../styles/Details.module.css';
 
@@ -9,6 +9,19 @@ const Details = () => {
   const { id } = useParams();
   const { isLoading, hoteldetails } = useSelector((state) => state.details);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const hotelDetails = hoteldetails;
+
+    navigate('/reservations/new', {
+      state: {
+        hotel: hotelDetails,
+        directAccess: false,
+      },
+    });
+  };
 
   useEffect(() => {
     dispatch(fetchHotel(id));
@@ -47,9 +60,9 @@ const Details = () => {
             Discover More Hotel Rooms
             <FaGreaterThan />
           </Link>
-          <Link to="/reservations/new" className={styles.reserve}>
+          <button type="submit" onClick={handleClick} className={styles.reserve}>
             Reserve
-          </Link>
+          </button>
         </div>
       </div>
     </div>

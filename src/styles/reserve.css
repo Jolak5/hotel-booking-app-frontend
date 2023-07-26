@@ -1,0 +1,44 @@
+.reserve-div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered-div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.reservation-list {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.reservation-item img {
+  width: 250px;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .reservation-item img {
+    width: 250px;
+  }
+}
