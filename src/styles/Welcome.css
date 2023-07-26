@@ -1,0 +1,91 @@
+.welcome-page-container {
+  background-image: url('../assets/homebackground.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-color-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  background-color: #b4c424b9;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  color: #050511;
+}
+
+.welcome-color-container h1 {
+  font-size: 36px;
+}
+
+.welcome-color-container p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+.welcome-auth-link {
+  background-color: #050511;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 1;
+}
+
+.welcome-auth-link:hover {
+  background-color: #121236;
+  font-size: 15px;
+}
+
+/* Mobile version */
+@media screen and (max-width: 767px) {
+  .welcome-color-container {
+    gap: 50px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .welcome-color-container h1 {
+    font-size: 24px;
+  }
+
+  .welcome-color-container p {
+    font-size: 16px;
+  }
+
+  .welcome-auth-link {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}
+
+/* Medium screens */
+@media screen and (max-width: 1023px) {
+  .welcome-color-container {
+    gap: 70px;
+    padding: 40px;
+  }
+
+  .welcome-color-container h1 {
+    font-size: 30px;
+  }
+
+  .welcome-color-container p {
+    font-size: 16px;
+  }
+
+  .welcome-auth-link {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
