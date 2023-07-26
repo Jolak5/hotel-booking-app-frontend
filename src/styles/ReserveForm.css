@@ -1,0 +1,156 @@
+.add-reservation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 50px 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.add-hotel-headings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.add-hotel-heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-hotel-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5656;
+}
+
+.add-hotel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #b4c424;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #fff;
+  color: #000;
+  opacity: 1;
+}
+
+.text-input,
+.input-description {
+  width: 100%;
+}
+
+.input-description {
+  height: 100px;
+}
+
+.number-inputs-container {
+  display: flex;
+  gap: 2%;
+}
+
+.number-input {
+  width: 49%;
+  padding-right: 0;
+}
+
+.add-hotel-btn {
+  width: 30%;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #b4c424;
+  border: none;
+  cursor: pointer;
+}
+
+.add-hotel-btn:hover {
+  font-size: 14px;
+  background-color: #96a31b;
+}
+
+/* Medium screens */
+@media screen and (max-width: 1023px) {
+  .add-reservation-container {
+    grid-template-columns: 1fr;
+    padding: 30px 10px;
+  }
+
+  .add-hotel-headings-container {
+    gap: 15px;
+  }
+
+  .add-hotel-heading {
+    font-size: 16px;
+  }
+
+  .add-hotel-text {
+    font-size: 12px;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .number-inputs-container {
+    gap: 5px;
+  }
+
+  .add-hotel-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile version */
+@media screen and (max-width: 767px) {
+  .add-reservation-container {
+    grid-template-columns: 1fr;
+  }
+
+  .add-hotel-headings-container {
+    gap: 20px;
+  }
+
+  .add-hotel-heading {
+    font-size: 18px;
+  }
+
+  .add-hotel-text {
+    font-size: 12px;
+  }
+
+  .number-inputs-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .number-input {
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  .add-hotel-btn {
+    width: 50%;
+  }
+
+  .image-container {
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
