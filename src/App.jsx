@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { FiMenu } from 'react-icons/fi';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Welcome from './components/Welcome';
 import HotelRooms from './components/HotelRooms';
 import ReservationsList from './components/ReservationsList';
@@ -10,43 +11,37 @@ import AddHotel from './components/AddHotel';
 import SideBar from './components/SideBar';
 import Authentication from './components/Authentication';
 import Details from './components/Details';
-import { logInUser } from './redux/auth/authenticationSlice';
-import { getLocalStorage } from './helpers/localStorage';
+import { toggleNav } from './redux/sideBar/sideBarSlice';
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const hideNavigation = location.pathname === '/';
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const token = getLocalStorage('token');
-    const user = getLocalStorage('user');
-
-    if (token && user) {
-      dispatch(logInUser({ token, user }));
-    }
-  }, [dispatch]);
-
   return (
-    <div className="main-container">
-      <SideBar />
-      <div className="page-contents">
-        <Routes>
-          <Route path="/" index element={<Welcome />} />
-          <Route path="/home" index element={<HotelRooms />} />
-          <Route
-            path="/reservations/my-reservations"
-            index
-            element={<ReservationsList />}
-          />
-          <Route path="/reservations/new" index element={<ReserveForm />} />
-          <Route path="/room/new" index element={<AddHotel />} />
-          <Route path="rooms" index element={<DeleteHotel />} />
-          <Route exact path="/auth" element={<Authentication />} />
-          <Route path="/details/:id" element={<Details />} />
-        </Routes>
-      </div>
-    </div>
+    <>
+      {!hideNavigation && (
+        <FiMenu className="menu-icon" onClick={() => dispatch(toggleNav())} />
+      )}
+      {!hideNavigation && <SideBar />}
+      <Routes>
+        <Route path="/" index element={<Welcome />} />
+        <Route path="/home" index element={<HotelRooms />} />
+        <Route
+          path="/reservations/my-reservations"
+          index
+          element={<ReservationsList />}
+        />
+        <Route path="/reservations/new" index element={<ReserveForm />} />
+        <Route path="/hotel/new" index element={<AddHotel />} />
+        <Route path="hotels" index element={<DeleteHotel />} />
+        <Route exact path="/auth" element={<Authentication />} />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
