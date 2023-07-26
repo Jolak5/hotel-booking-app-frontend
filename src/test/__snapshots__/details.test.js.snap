@@ -84,13 +84,13 @@ exports[`Details matches snapshot 1`] = `
           />
         </svg>
       </a>
-      <a
+      <button
         className="reserve"
-        href="/reservations/new"
         onClick={[Function]}
+        type="submit"
       >
         Reserve
-      </a>
+      </button>
     </div>
   </div>
 </div>
