@@ -50,7 +50,11 @@ const ReserveForm = () => {
         duration,
       },
     }));
-    navigate('/reservations/my-reservations');
+    navigate('/reservations/my-reservations', {
+      state: {
+        directAccess: false,
+      },
+    });
   };
 
   return (

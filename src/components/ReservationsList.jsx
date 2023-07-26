@@ -4,12 +4,15 @@ import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { Carousel } from 'react-responsive-carousel';
+import { useLocation } from 'react-router';
 import { fetchreservations } from '../redux/reservation/reservation';
 import styles from '../styles/Home.module.css';
 
 export default function ReservationsList() {
   const { fetched, isLoading, reservations } = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
+  const location = useLocation;
+  const { directAcess } = location.state || {};
   const [itemsToShow, setItemsToShow] = useState(window.innerWidth > 768 ? 3 : 1);
   const handleResize = () => {
     setItemsToShow(window.innerWidth > 768 ? 3 : 1);
@@ -21,17 +24,16 @@ export default function ReservationsList() {
 
     window.addEventListener('resize', handleResize);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [dispatch, fetched]);
 
   useEffect(() => {
-    if (!fetched) {
+    if (!directAcess) {
       dispatch(fetchreservations());
     }
-  }, [dispatch, fetched]);
+  }, [dispatch, directAcess]);
   if (isLoading) {
     return (
       <p>Loading...</p>
