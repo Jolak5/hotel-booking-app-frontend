@@ -9,6 +9,7 @@ import ReserveForm from './components/ReserveForm';
 import AddHotel from './components/AddHotel';
 import SideBar from './components/SideBar';
 import Authentication from './components/Authentication';
+import Details from './components/Details';
 import { logInUser } from './redux/auth/authenticationSlice';
 import { getLocalStorage } from './helpers/localStorage';
 import './App.css';
@@ -41,6 +42,7 @@ function App() {
           <Route path="/room/new" index element={<AddHotel />} />
           <Route path="rooms" index element={<DeleteHotel />} />
           <Route exact path="/auth" element={<Authentication />} />
+          <Route path="/details/:id" element={<Details />} />
         </Routes>
       </div>
     </div>
