@@ -73,6 +73,10 @@ input {
   margin-bottom: 5%;
 }
 
+/* ///////////////////////////////////////////Media Quries/////////////////////////////////////////// */
+
+/* Medium screens */
+
 /* Medium screens */
 @media screen and (max-width: 1023px) {
   .auth-main {
@@ -132,17 +136,4 @@ input {
     font-size: 14px;
     padding: 8px;
   }
-
-.logout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #b4c424;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  width: 100px;
-  height: 32px;
-  margin: 10px 16px;
-
 }
