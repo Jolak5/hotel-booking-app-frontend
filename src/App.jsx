@@ -21,7 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className="main-container">
       {!hideNavigation && (
         <FiMenu className="menu-icon" onClick={() => dispatch(toggleNav())} />
       )}
@@ -40,7 +40,7 @@ const App = () => {
         <Route exact path="/auth" element={<Authentication />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

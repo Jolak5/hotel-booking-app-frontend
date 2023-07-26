@@ -51,13 +51,15 @@ const SideBar = () => {
         <img src={logo} alt="app-logo" className="app-logo" />
       </div>
       <ul className="pages-link">
-        <li>
-          <NavLink to="/home">
-            <button type="button" onClick={() => handleHideNav()}>
-              HOTELS
-            </button>
-          </NavLink>
-        </li>
+        {isAuthenticated && (
+          <li>
+            <NavLink to="/home">
+              <button type="button" onClick={() => handleHideNav()}>
+                HOTELS
+              </button>
+            </NavLink>
+          </li>
+        )}
         {isAuthenticated && (
           <li>
             <NavLink to="/reservations/my-reservations">
