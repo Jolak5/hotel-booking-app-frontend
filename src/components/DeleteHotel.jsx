@@ -24,7 +24,7 @@ const DeleteHotel = () => {
           <div className="delete-container" key={hotel.id}>
             <img className="delete-image" src={hotel.image.url} alt={hotel.name} />
             <h3 className="delete-name">{hotel.name}</h3>
-            <button type="submit" onClick={handleClick(hotel.id)} className="delete-button">
+            <button type="submit" onClick={() => handleClick(hotel.id)} className="delete-button">
               DELETE
             </button>
           </div>
