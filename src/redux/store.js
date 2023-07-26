@@ -5,6 +5,7 @@ import newReducer from './hotel/newhotelSlice';
 import homeReducer from './Home/homeSlice';
 import detailsReducer from './Details/detailsSlice';
 import deleteReducer from './Delete/deleteSlice';
+import SideBarReducer from './sideBar/sideBarSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     home: homeReducer,
     details: detailsReducer,
     delete: deleteReducer,
+    nav: SideBarReducer,
   },
 });
 
