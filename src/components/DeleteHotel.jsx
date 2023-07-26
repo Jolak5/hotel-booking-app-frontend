@@ -5,7 +5,6 @@ import '../styles/Delete.css';
 
 const DeleteHotel = () => {
   const { isLoading, hotels } = useSelector((state) => state.home);
-  // const dispatch = useDispatch();
 
   if (isLoading) {
     return (
