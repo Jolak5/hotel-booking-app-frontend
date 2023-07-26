@@ -60,10 +60,17 @@ const Authentication = () => {
 
   return (
     <main className="auth-main">
+      <div className="auth-welcome-text-container">
+        <h3 className="welcome-heading">HOTEL BOOKING APP</h3>
+        <p className="auth-welcome-message">
+          Discover the best hotels around the world and book your dream vacation
+          today. Sign up or login to unlock exclusive deals and offers!
+        </p>
+      </div>
       <form onSubmit={(e) => handleSubmit(e)} className="form-wrapper">
-        <h1 className="auth-title">
+        <h3 className="auth-title">
           {formAuth === 'login' ? 'Log In' : 'Register'}
-        </h1>
+        </h3>
 
         <input
           type="text"
@@ -103,19 +110,26 @@ const Authentication = () => {
           {formAuth === 'login' ? (
             <>
               <p>Don&apos;t have an account?</p>
-              <button type="button" className="register" onClick={() => dispatch(toggleFormAuth())}>
+              <button
+                type="button"
+                className="register"
+                onClick={() => dispatch(toggleFormAuth())}
+              >
                 Register
               </button>
             </>
           ) : (
             <>
               <p>Already have an account?</p>
-              <button type="button" className="login" onClick={() => dispatch(toggleFormAuth())}>
+              <button
+                type="button"
+                className="login-btn"
+                onClick={() => dispatch(toggleFormAuth())}
+              >
                 Log In
               </button>
             </>
           )}
-
         </div>
       </form>
     </main>
