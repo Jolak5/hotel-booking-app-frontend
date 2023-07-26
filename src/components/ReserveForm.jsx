@@ -1,36 +1,57 @@
-import React from 'react';
-import '../styles/reserve.css';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { fetchhotels } from '../redux/Home/homeSlice';
 import { getLocalStorage } from '../helpers/localStorage';
-
-const postDataToApi = async () => {
-  const data = {
-    user_id: 1,
-    hotel_id: 1,
-    reservation_date: '1995-12-14',
-  };
-
-  try {
-    const token = getLocalStorage('token');
-
-    const response = await axios.post('http://localhost:3000/reservations', data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+import { postReservation } from '../redux/reservation/newreservationSlice';
 
 const ReserveForm = () => {
+  const { fetched, hotels } = useSelector((state) => state.home);
+  const currentuser = getLocalStorage('user');
+  const dispatch = useDispatch();
   const location = useLocation();
-  const { currentuser, hotel } = location.state || {};
+  const { hotel } = location.state || {};
+  const [selectedHotel, setSelectedHotel] = useState(hotel);
+  const [startDate, setStartDate] = useState(new Date().toISOString().substr(0, 10));
+  const [duration, setDuration] = useState(1);
+  const navigate = useNavigate();
 
-  console.log(currentuser);
-  console.log(hotel);
+  useEffect(() => {
+    if (!fetched) {
+      dispatch(fetchhotels());
+    }
+    if (hotel) {
+      setSelectedHotel(hotel);
+    } else if (hotels.length > 0) {
+      setSelectedHotel(hotels[0]);
+    }
+  }, [dispatch, fetched, hotel, hotels]);
+
+  useEffect(() => {
+    if (!hotel && hotels.length) {
+      setSelectedHotel(hotels[0]);
+    }
+  }, [hotels, hotel]);
+
+  const handleHotelChange = (e) => {
+    const hotelId = Number(e.target.value);
+    const chosenHotel = hotels.find((hotel) => hotel.id === hotelId);
+    setSelectedHotel(chosenHotel);
+  };
+
+  const postDataToApi = (event) => {
+    event.preventDefault();
+    dispatch(postReservation({
+      reservation: {
+        user_id: currentuser.id,
+        hotel_id: selectedHotel.id,
+        reservation_date: startDate,
+        duration,
+      },
+    }));
+    navigate('/reservations/my-reservations');
+  };
+
   return (
     <div className="reserve-div">
       <div className="centered-div">
@@ -40,16 +61,54 @@ const ReserveForm = () => {
           With this simple to do hack, you can easily book our hotel room
           Please note, you can only ask for refund 48 hours after booking.
         </p>
-        <form className="reserve-form">
-          <input
-            type="date"
-            id="dateInput"
-            name="dateInput"
-          />
-          <button onClick={postDataToApi} type="submit">Book Now</button>
+        <form className="reserve-form" onSubmit={postDataToApi}>
+          <label htmlFor="userName">
+            User:
+            <input type="text" id="userName" value={currentuser.name} disabled />
+          </label>
+          <label htmlFor="hotelSelect">
+            Hotel:
+            <select id="hotelSelect" name="hotel" value={selectedHotel ? selectedHotel.id : 1} onChange={handleHotelChange}>
+              {hotels.map((hotel) => (
+                <option value={hotel.id} key={hotel.id}>
+                  {hotel.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          {selectedHotel && selectedHotel.image
+            && (
+              <div>
+                <p>Hotel</p>
+                <img style={{ width: '100px', height: '100px' }} src={selectedHotel.image.url} alt={selectedHotel.name} />
+              </div>
+            )}
+          <label htmlFor="startDateInput">
+            Start Date:
+            <input
+              type="date"
+              id="startDateInput"
+              name="dateInput"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="durationInput">
+            Duration (days):
+            <input
+              type="number"
+              id="durationInput"
+              name="durationInput"
+              min="1"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+            />
+          </label>
+          <button type="submit">Book Now</button>
         </form>
       </div>
     </div>
   );
 };
+
 export default ReserveForm;

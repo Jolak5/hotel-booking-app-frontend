@@ -4,7 +4,6 @@ import { FaGreaterThan } from 'react-icons/fa';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchHotel } from '../redux/Details/detailsSlice';
 import styles from '../styles/Details.module.css';
-import { getLocalStorage } from '../helpers/localStorage';
 
 const Details = () => {
   const { id } = useParams();
@@ -14,13 +13,12 @@ const Details = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const user = getLocalStorage('user');
     const hotelDetails = hoteldetails;
 
     navigate('/reservations/new', {
       state: {
-        currentuser: user,
         hotel: hotelDetails,
+        directAccess: false,
       },
     });
   };
