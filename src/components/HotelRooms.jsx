@@ -26,7 +26,6 @@ const HotelRooms = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -72,23 +71,27 @@ const HotelRooms = () => {
             </button>
             )}
           >
-            {hotels.map((hotel) => (
-              <div key={hotel.id}>
-                <Link to={`/details/${hotel.id}`} className={styles.hotelinfo}>
-                  <img className={styles.hotelimg} src={hotel.image.url} alt={hotel.name} />
-                  <h3 className={styles.hotelname}>{hotel.name}</h3>
-                  <div className={styles.dotedbordercontainer} />
-                  <p className={styles.hotelDesc}>
-                    {truncateDescription(hotel.description)}
-                  </p>
-                  <div className={styles.hotelicons}>
-                    <FaFacebook className={styles.hotelicon} />
-                    <FaTwitter className={styles.hotelicon} />
-                    <AiOutlineMail className={styles.hotelicon} />
-                  </div>
-                </Link>
-              </div>
-            ))}
+            {hotels && hotels.length > 0 ? (
+              hotels.map((hotel) => (
+                <div key={hotel.id}>
+                  <Link to={`/details/${hotel.id}`} className={styles.hotelinfo}>
+                    <img className={styles.hotelimg} src={hotel.image.url} alt={hotel.name} />
+                    <h3 className={styles.hotelname}>{hotel.name}</h3>
+                    <div className={styles.dotedbordercontainer} />
+                    <p className={styles.hotelDesc}>
+                      {truncateDescription(hotel.description)}
+                    </p>
+                    <div className={styles.hotelicons}>
+                      <FaFacebook className={styles.hotelicon} />
+                      <FaTwitter className={styles.hotelicon} />
+                      <AiOutlineMail className={styles.hotelicon} />
+                    </div>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p>It is empty</p>
+            )}
           </Carousel>
         </div>
       </div>
