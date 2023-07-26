@@ -3,6 +3,7 @@ import AuthenticationReducer from './auth/authenticationSlice';
 import newReducer from './hotel/newhotelSlice';
 import homeReducer from './Home/homeSlice';
 import detailsReducer from './Details/detailsSlice';
+import deleteReducer from './Delete/deleteSlice';
 
 const store = configureStore({
   reducer: {
