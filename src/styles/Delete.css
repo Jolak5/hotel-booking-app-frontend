@@ -7,7 +7,6 @@
 
 .delete-container {
     display: flex;
-    gap: 60px;
     border: 1px solid #b4c424;
     align-items: center;
     height: 150px;
@@ -17,6 +16,7 @@
     padding-right: 50px;
     padding-bottom: 20px;
     padding-top: 20px;
+    justify-content: space-between;
 }
 
 .delete-image {
@@ -24,4 +24,11 @@
     border: 2px solid #b4c424;
     width: 100px;
     height: 100px;
+}
+
+.delete-button {
+  padding: 10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 2px;
 }
