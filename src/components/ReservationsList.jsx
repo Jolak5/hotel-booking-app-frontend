@@ -8,7 +8,7 @@ import { useLocation } from 'react-router';
 import { fetchreservations } from '../redux/reservation/reservation';
 import styles from '../styles/Home.module.css';
 
-export default function ReservationsList() {
+const ReservationsList = () => {
   const { fetched, isLoading, reservations } = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
   const location = useLocation;
@@ -99,4 +99,6 @@ export default function ReservationsList() {
     </div>
 
   );
-}
+};
+
+export default ReservationsList;
