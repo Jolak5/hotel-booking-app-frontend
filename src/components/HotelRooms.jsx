@@ -42,11 +42,15 @@ const HotelRooms = () => {
   }, [dispatch, directAcess]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className={styles.loadingText}>Loading...</p>;
   }
 
   if (hotels.length === 0) {
-    return <p>There are no Hotels. Please add a hotel</p>;
+    return (
+      <p className={styles.noHotelsText}>
+        There are no Hotels. Please add a hotel
+      </p>
+    );
   }
 
   const truncateDescription = (description, words = 4) => {

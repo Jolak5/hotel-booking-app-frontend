@@ -28,18 +28,23 @@ const Details = () => {
   }, [dispatch, id]);
 
   if (isLoading) {
-    return (
-      <p>Loading...</p>
-    );
+    return <p className={styles.loadingText}>Loading...</p>;
   }
   return (
     <div className={styles.details}>
-      {hoteldetails.image
-        && <img className={styles.detimg} src={hoteldetails.image.url} alt={hoteldetails.name} />}
+      {hoteldetails.image && (
+        <img
+          className={styles.detimg}
+          src={hoteldetails.image.url}
+          alt={hoteldetails.name}
+        />
+      )}
       <div className={styles.hoteltextdetails}>
         <div className={styles.detailer}>
           <h2 className={styles.hoteldetailsname}>{hoteldetails.name}</h2>
-          <p className={styles.hoteldetailsdescription}>{hoteldetails.description}</p>
+          <p className={styles.hoteldetailsdescription}>
+            {hoteldetails.description}
+          </p>
           <div className={styles.hotelpricecontainer}>
             <p className={styles.textheading}>Price Per Night</p>
             <span className="price-value">
@@ -60,7 +65,11 @@ const Details = () => {
             Discover More Hotel Rooms
             <FaGreaterThan />
           </Link>
-          <button type="submit" onClick={handleClick} className={styles.reserve}>
+          <button
+            type="submit"
+            onClick={handleClick}
+            className={styles.reserve}
+          >
             Reserve
           </button>
         </div>

@@ -90,6 +90,13 @@
   background-color: #96a31b;
 }
 
+.form-label {
+  font-weight: 500;
+  color: #818080;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
 /* ///////////////////////////////////////////Media Quries/////////////////////////////////////////// */
 
 /* Medium screens */

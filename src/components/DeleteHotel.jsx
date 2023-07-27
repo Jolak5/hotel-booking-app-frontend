@@ -8,23 +8,35 @@ const DeleteHotel = () => {
   const dispatch = useDispatch();
 
   if (isLoading) {
-    return (
-      <p>Loading...</p>
-    );
+    return <p>Loading...</p>;
   }
 
   const handleClick = (id) => {
     dispatch(deleteHotel(id));
   };
 
+  if (hotels.length === 0) {
+    return (
+      <p className="noHotelsText">There are no Hotels. Please add a hotel</p>
+    );
+  }
+
   return (
     <>
       <div className="main-del-container">
         {hotels.map((hotel) => (
           <div className="delete-container" key={hotel.id}>
-            <img className="delete-image" src={hotel.image.url} alt={hotel.name} />
+            <img
+              className="delete-image"
+              src={hotel.image.url}
+              alt={hotel.name}
+            />
             <h3 className="delete-name">{hotel.name}</h3>
-            <button type="submit" onClick={() => handleClick(hotel.id)} className="delete-button">
+            <button
+              type="submit"
+              onClick={() => handleClick(hotel.id)}
+              className="delete-button"
+            >
               DELETE
             </button>
           </div>
