@@ -44,6 +44,11 @@ form {
   color: #5e5b5b;
 }
 
+.error-message {
+  color: red;
+  font-weight: 500;
+}
+
 input {
   padding: 10px;
   outline: none;
