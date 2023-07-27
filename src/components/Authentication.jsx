@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -7,7 +7,6 @@ import {
   registerUser,
   toggleFormAuth,
 } from '../redux/auth/authenticationSlice';
-import AuthRedirect from './AuthRedirect';
 import '../styles/Authentication.css';
 
 const Authentication = () => {
@@ -15,6 +14,7 @@ const Authentication = () => {
   const navigate = useNavigate();
 
   const {
+    token,
     tempUser: { name, password, confirmPassword },
   } = useSelector((state) => state.auth);
 
@@ -22,25 +22,11 @@ const Authentication = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    dispatch(
-      logInUser({
-        name,
-        password,
-      }),
-    ).then(() => {
-      navigate('/home');
-    });
+    dispatch(logInUser({ name, password }));
   };
 
   const handleRegister = () => {
-    dispatch(
-      registerUser({
-        user: {
-          name,
-          password,
-        },
-      }),
-    );
+    dispatch(registerUser({ user: { name, password } }));
     dispatch(toggleFormAuth());
   };
 
@@ -48,6 +34,13 @@ const Authentication = () => {
     const { name, value } = e.target;
     dispatch(handleUpdate({ name, value }));
   };
+
+  // Check if the user is authenticated and redirect if necessary
+  useEffect(() => {
+    if (token) {
+      navigate('/home');
+    }
+  }, [token, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -136,4 +129,4 @@ const Authentication = () => {
   );
 };
 
-export default AuthRedirect(Authentication);
+export default Authentication;
