@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -6,8 +6,8 @@ import {
   logInUser,
   registerUser,
   toggleFormAuth,
+  clearErrors,
 } from '../redux/auth/authenticationSlice';
-import AuthRedirect from './AuthRedirect';
 import '../styles/Authentication.css';
 
 const Authentication = () => {
@@ -15,32 +15,25 @@ const Authentication = () => {
   const navigate = useNavigate();
 
   const {
+    token,
+    errors,
     tempUser: { name, password, confirmPassword },
   } = useSelector((state) => state.auth);
 
   const formAuth = useSelector((state) => state.auth.formAuth);
 
+  useEffect(() => {
+    dispatch(clearErrors());
+  }, [dispatch, formAuth]);
+
   const handleLogIn = (e) => {
     e.preventDefault();
-    dispatch(
-      logInUser({
-        name,
-        password,
-      }),
-    ).then(() => {
-      navigate('/home');
-    });
+
+    dispatch(logInUser({ name, password }));
   };
 
   const handleRegister = () => {
-    dispatch(
-      registerUser({
-        user: {
-          name,
-          password,
-        },
-      }),
-    );
+    dispatch(registerUser({ user: { name, password } }));
     dispatch(toggleFormAuth());
   };
 
@@ -48,6 +41,12 @@ const Authentication = () => {
     const { name, value } = e.target;
     dispatch(handleUpdate({ name, value }));
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate('/home');
+    }
+  }, [token, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,7 +70,7 @@ const Authentication = () => {
         <h3 className="auth-title">
           {formAuth === 'login' ? 'Log In' : 'Register'}
         </h3>
-
+        {errors && <p className="error-message">{errors}</p>}
         <input
           type="text"
           placeholder="name"
@@ -136,4 +135,4 @@ const Authentication = () => {
   );
 };
 
-export default AuthRedirect(Authentication);
+export default Authentication;

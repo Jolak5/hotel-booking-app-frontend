@@ -130,7 +130,7 @@ const SideBar = () => {
               </li>
             </>
           )}
-          {isAuthenticated && (
+          {isAuthenticated && user && (
             <li>
               <h4 className="username">{user.name}</h4>
               <button

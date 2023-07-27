@@ -33,9 +33,11 @@ export const logInUser = createAsyncThunk(
 
       const { user } = responseData;
 
-      return { token, user };
+      const { error } = responseData;
+
+      return { token, user, error };
     } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong!');
+      return thunkAPI.rejectWithValue('Invalid name or password!');
     }
   },
 );
@@ -94,15 +96,20 @@ const authSlice = createSlice({
       ...state,
       formAuth: 'login',
     }),
+    clearErrors: (state) => ({
+      ...state,
+      errors: null,
+    }),
   },
   extraReducers: (builder) => {
     builder
       .addCase(logInUser.pending, (state) => ({
         ...state,
         isLoading: true,
+        errors: null,
       }))
       .addCase(logInUser.fulfilled, (state, { payload }) => {
-        const { token, user } = payload;
+        const { token, user, error } = payload;
 
         if (token && user) {
           setLocalStorage('token', token);
@@ -118,6 +125,7 @@ const authSlice = createSlice({
             name: '',
             password: '',
           },
+          errors: error,
         };
       })
       .addCase(logInUser.rejected, (state, { payload }) => ({
@@ -171,6 +179,10 @@ const authSlice = createSlice({
   },
 });
 export const {
-  handleUpdate, toggleFormAuth, toRegister, toLogin,
+  handleUpdate,
+  toggleFormAuth,
+  toRegister,
+  toLogin,
+  clearErrors,
 } = authSlice.actions;
 export default authSlice.reducer;
