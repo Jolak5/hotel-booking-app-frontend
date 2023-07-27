@@ -39,6 +39,11 @@
   background-color: #96be0e;
 }
 
+.active {
+  color: #fff !important;
+  background-color: #b4c424;
+}
+
 .pages-link button {
   text-align: left;
   padding: 1.5vh;

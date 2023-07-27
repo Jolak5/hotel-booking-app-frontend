@@ -53,7 +53,7 @@ const SideBar = () => {
       <ul className="pages-link">
         {isAuthenticated && (
           <li>
-            <NavLink to="/home">
+            <NavLink to="/home" activeclassname="active">
               <button type="button" onClick={() => handleHideNav()}>
                 HOTELS
               </button>
@@ -62,7 +62,10 @@ const SideBar = () => {
         )}
         {isAuthenticated && (
           <li>
-            <NavLink to="/reservations/my-reservations">
+            <NavLink
+              to="/reservations/my-reservations"
+              activeclassname="active"
+            >
               <button type="button" onClick={() => handleHideNav()}>
                 RESERVATIONS
               </button>
@@ -71,7 +74,7 @@ const SideBar = () => {
         )}
         {isAuthenticated && (
           <li>
-            <NavLink to="/reservations/new">
+            <NavLink to="/reservations/new" activeclassname="active">
               <button type="button" onClick={() => handleHideNav()}>
                 RESERVE A ROOM
               </button>
@@ -81,14 +84,18 @@ const SideBar = () => {
         {isAuthenticated && (
           <>
             <li>
-              <NavLink to="/hotel/new">
+              <NavLink to="/hotel/new" activeclassname="active">
                 <button type="button" onClick={() => handleHideNav()}>
                   ADD HOTEL
                 </button>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/hotels" className="last-nav-link">
+              <NavLink
+                to="/hotels"
+                className="last-nav-link"
+                activeclassname="active"
+              >
                 <button type="button" onClick={() => handleHideNav()}>
                   DELETE HOTEL
                 </button>
