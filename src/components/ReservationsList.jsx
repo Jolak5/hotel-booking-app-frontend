@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -8,26 +8,32 @@ import { useLocation } from 'react-router';
 import { fetchreservations } from '../redux/reservation/reservation';
 import styles from '../styles/Home.module.css';
 
-export default function ReservationsList() {
+const ReservationsList = () => {
   const { fetched, isLoading, reservations } = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
   const location = useLocation;
   const { directAcess } = location.state || {};
-  const [itemsToShow, setItemsToShow] = useState(window.innerWidth > 768 ? 3 : 1);
-  const handleResize = () => {
-    setItemsToShow(window.innerWidth > 768 ? 3 : 1);
-  };
+
+  const [itemsToShow, setItemsToShow] = useState(
+    Math.min(window.innerWidth > 768 ? 3 : 1, reservations.length),
+  );
+
+  const handleResize = useCallback(() => {
+    setItemsToShow(Math.min(window.innerWidth > 768 ? 3 : 1, reservations.length));
+  }, [reservations.length]);
+
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchreservations());
     }
 
+    setItemsToShow(Math.min(window.innerWidth > 768 ? 3 : 1, reservations.length));
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, fetched]);
+  }, [dispatch, fetched, reservations, handleResize]);
 
   useEffect(() => {
     if (!directAcess) {
@@ -99,4 +105,6 @@ export default function ReservationsList() {
     </div>
 
   );
-}
+};
+
+export default ReservationsList;

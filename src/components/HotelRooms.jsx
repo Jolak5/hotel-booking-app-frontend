@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -16,23 +16,24 @@ const HotelRooms = () => {
 
   const { directAcess } = location.state || {};
   const [itemsToShow, setItemsToShow] = useState(
-    window.innerWidth > 768 ? 3 : 1,
+    Math.min(window.innerWidth > 768 ? 3 : 1, hotels.length),
   );
 
-  const handleResize = () => {
-    setItemsToShow(window.innerWidth > 768 ? 3 : 1);
-  };
+  const handleResize = useCallback(() => {
+    setItemsToShow(Math.min(window.innerWidth > 768 ? 3 : 1, hotels.length));
+  }, [hotels.length]);
 
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchhotels());
     }
+    setItemsToShow(Math.min(window.innerWidth > 768 ? 3 : 1, hotels.length));
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, fetched, hotels]);
+  }, [dispatch, fetched, hotels, handleResize]);
 
   useEffect(() => {
     if (!directAcess) {
