@@ -41,13 +41,13 @@ exports[`Home matches snapshot 1`] = `
             style={
               Object {
                 "MozTransitionDuration": "350ms",
-                "OTransform": "translate3d(-7.105427357601002e-15%,0,0)",
+                "OTransform": "translate3d(-100%,0,0)",
                 "OTransitionDuration": "350ms",
-                "WebkitTransform": "translate3d(-7.105427357601002e-15%,0,0)",
+                "WebkitTransform": "translate3d(-100%,0,0)",
                 "WebkitTransitionDuration": "350ms",
-                "msTransform": "translate3d(-7.105427357601002e-15%,0,0)",
+                "msTransform": "translate3d(-100%,0,0)",
                 "msTransitionDuration": "350ms",
-                "transform": "translate3d(-7.105427357601002e-15%,0,0)",
+                "transform": "translate3d(-100%,0,0)",
                 "transitionDuration": "350ms",
               }
             }
@@ -57,7 +57,7 @@ exports[`Home matches snapshot 1`] = `
               onClick={[Function]}
               style={
                 Object {
-                  "minWidth": "33.333333333333336%",
+                  "minWidth": "100%",
                 }
               }
             >
@@ -154,7 +154,7 @@ exports[`Home matches snapshot 1`] = `
               onClick={[Function]}
               style={
                 Object {
-                  "minWidth": "33.333333333333336%",
+                  "minWidth": "100%",
                 }
               }
             >
