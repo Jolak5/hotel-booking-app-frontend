@@ -2,35 +2,36 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 30px;
   padding: 50px 20px;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 100vh;
+  margin: 2% 5% 0;
 }
 
-.add-hotel-headings-container {
+.add-reservation-headings-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.add-hotel-heading {
+.add-reservation-heading {
   font-size: 20px;
   font-weight: 600;
 }
 
-.add-hotel-text {
+.add-reservation-text {
   font-size: 14px;
   font-weight: 500;
   color: #5a5656;
 }
 
-.add-hotel-form {
+.add-reservation-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
@@ -64,7 +65,7 @@
   padding-right: 0;
 }
 
-.add-hotel-btn {
+.add-reservation-btn {
   width: 30%;
   padding: 10px;
   font-weight: 500;
@@ -75,9 +76,21 @@
   cursor: pointer;
 }
 
-.add-hotel-btn:hover {
+.add-reservation-btn:hover {
   font-size: 14px;
   background-color: #96a31b;
+}
+
+.input-label {
+  margin-bottom: 10px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+span {
+  padding: 0 5px;
 }
 
 /* Medium screens */
@@ -87,15 +100,15 @@
     padding: 30px 10px;
   }
 
-  .add-hotel-headings-container {
+  .add-reservation-headings-container {
     gap: 15px;
   }
 
-  .add-hotel-heading {
+  .add-reservation-heading {
     font-size: 16px;
   }
 
-  .add-hotel-text {
+  .add-reservation-text {
     font-size: 12px;
   }
 
@@ -107,7 +120,7 @@
     gap: 5px;
   }
 
-  .add-hotel-btn {
+  .add-reservation-btn {
     padding: 8px;
     font-size: 12px;
   }
@@ -116,18 +129,21 @@
 /* Mobile version */
 @media screen and (max-width: 767px) {
   .add-reservation-container {
+    margin-top: 20%;
     grid-template-columns: 1fr;
+    height: min-content;
+    text-align: start;
   }
 
-  .add-hotel-headings-container {
+  .add-reservation-headings-container {
     gap: 20px;
   }
 
-  .add-hotel-heading {
+  .add-reservation-heading {
     font-size: 18px;
   }
 
-  .add-hotel-text {
+  .add-reservation-text {
     font-size: 12px;
   }
 
@@ -141,7 +157,7 @@
     padding-right: 10px;
   }
 
-  .add-hotel-btn {
+  .add-reservation-btn {
     width: 50%;
   }
 
