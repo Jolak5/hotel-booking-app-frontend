@@ -25,7 +25,7 @@ export const logInUser = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/sessions',
-        userInput
+        userInput,
       );
       const responseData = response.data;
 
@@ -39,7 +39,7 @@ export const logInUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue('Invalid name or password!');
     }
-  }
+  },
 );
 
 export const logOutUser = createAsyncThunk(
@@ -55,7 +55,7 @@ export const logOutUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue('something went wrong!');
     }
-  }
+  },
 );
 export const registerUser = createAsyncThunk(
   'auth/register',
@@ -63,7 +63,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/users',
-        userInput
+        userInput,
       );
 
       return response.data;
@@ -73,7 +73,7 @@ export const registerUser = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue('something went wrong!');
     }
-  }
+  },
 );
 
 const authSlice = createSlice({

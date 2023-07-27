@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchhotels } from '../redux/Home/homeSlice';
 import { getLocalStorage } from '../helpers/localStorage';
 import { postReservation } from '../redux/reservation/newreservationSlice';
-import '../styles/ReserveForm.css';
+import '../styles/AddHotel.css';
 
 const ReserveForm = () => {
   const { fetched, hotels } = useSelector((state) => state.home);
@@ -13,7 +13,9 @@ const ReserveForm = () => {
   const location = useLocation();
   const { hotel } = location.state || {};
   const [selectedHotel, setSelectedHotel] = useState(hotel);
-  const [startDate, setStartDate] = useState(new Date().toISOString().substr(0, 10));
+  const [startDate, setStartDate] = useState(
+    new Date().toISOString().substr(0, 10),
+  );
   const [duration, setDuration] = useState(1);
   const navigate = useNavigate();
 
@@ -42,14 +44,16 @@ const ReserveForm = () => {
 
   const postDataToApi = (event) => {
     event.preventDefault();
-    dispatch(postReservation({
-      reservation: {
-        user_id: currentuser.id,
-        hotel_id: selectedHotel.id,
-        reservation_date: startDate,
-        duration,
-      },
-    }));
+    dispatch(
+      postReservation({
+        reservation: {
+          user_id: currentuser.id,
+          hotel_id: selectedHotel.id,
+          reservation_date: startDate,
+          duration,
+        },
+      }),
+    );
     navigate('/reservations/my-reservations', {
       state: {
         directAccess: false,
@@ -58,23 +62,33 @@ const ReserveForm = () => {
   };
 
   return (
-    <div className="add-reservation-container">
+    <div className="add-hotel-container">
       <div className="add-hotel-headings-container">
         <h2 className="add-hotel-heading">Book a hotel room here</h2>
-        {/* <hr /> */}
         <p className="add-hotel-text">
-          With this simple to do hack, you can easily book our hotel room
-          Please note, you can only ask for refund 48 hours after booking.
+          With this simple to do hack, you can easily book our hotel room Please
+          note, you can only ask for refund 48 hours after booking.
         </p>
       </div>
       <form className="add-hotel-form" onSubmit={postDataToApi}>
         <label htmlFor="userName">
           User:
-          <input type="text" className="text-input input" id="userName" value={currentuser.name} disabled />
+          <input
+            type="text"
+            className="text-input input"
+            id="userName"
+            value={currentuser.name}
+            disabled
+          />
         </label>
         <label htmlFor="hotelSelect">
           Hotel:
-          <select id="hotelSelect" name="hotel" value={selectedHotel ? selectedHotel.id : 1} onChange={handleHotelChange}>
+          <select
+            id="hotelSelect"
+            name="hotel"
+            value={selectedHotel ? selectedHotel.id : 1}
+            onChange={handleHotelChange}
+          >
             {hotels.map((hotel) => (
               <option value={hotel.id} key={hotel.id}>
                 {hotel.name}
@@ -82,14 +96,7 @@ const ReserveForm = () => {
             ))}
           </select>
         </label>
-        {/* {selectedHotel && selectedHotel.image
-            && (
-              <div>
-                <p>Hotel</p>
-                <img style={{ width: '100px', height: '100px' }}
-                src={selectedHotel.image.url} alt={selectedHotel.name} />
-              </div>
-            )} */}
+
         <label htmlFor="startDateInput">
           Start Date:
           <input
@@ -109,11 +116,13 @@ const ReserveForm = () => {
             min="1"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
+            className="number-input input"
           />
         </label>
-        <button type="submit" className="add-hotel-btn">Book Now</button>
+        <button type="submit" className="add-hotel-btn">
+          Book Now
+        </button>
       </form>
-
     </div>
   );
 };
