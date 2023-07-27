@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const url = 'http://localhost:3000/hotels/';
+const url = 'https://hotel-booking-7djb.onrender.com/hotels/';
 
 export const fetchHotel = createAsyncThunk('details/fetchhotels', async (id, thunkAPI) => {
   try {
