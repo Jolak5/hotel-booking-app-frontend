@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getLocalStorage } from '../../helpers/localStorage';
 
-const url = 'http://localhost:3000//hotels/';
+const url = 'https://hotel-booking-7djb.onrender.com/hotels/';
 
 export const deleteHotel = createAsyncThunk(
   'delete/deleteHotel',

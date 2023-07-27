@@ -24,7 +24,7 @@ export const logInUser = createAsyncThunk(
   async (userInput, thunkAPI) => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/sessions',
+        'https://hotel-booking-7djb.onrender.com/sessions',
         userInput,
       );
       const responseData = response.data;
@@ -46,7 +46,7 @@ export const logOutUser = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.delete('http://localhost:3000/sessions', {
+      const response = await axios.delete('https://hotel-booking-7djb.onrender.com/sessions', {
         headers: {
           authorization: thunkAPI.getState().auth.token,
         },
@@ -62,7 +62,7 @@ export const registerUser = createAsyncThunk(
   async (userInput, thunkAPI) => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/users',
+        'https://hotel-booking-7djb.onrender.com/users',
         userInput,
       );
 

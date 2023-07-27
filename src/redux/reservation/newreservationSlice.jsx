@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getLocalStorage } from '../../helpers/localStorage';
 
-const url = 'http://localhost:3000//reservations';
+const url = 'https://hotel-booking-7djb.onrender.com/reservations';
 
 export const postReservation = createAsyncThunk(
   'reservation/postReservation',
