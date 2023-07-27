@@ -71,8 +71,9 @@ const ReserveForm = () => {
         </p>
       </div>
       <form className="add-hotel-form" onSubmit={postDataToApi}>
-        <label htmlFor="userName">
+        <label htmlFor="userName" className="form-label">
           User:
+          <br />
           <input
             type="text"
             className="text-input input"
@@ -81,14 +82,21 @@ const ReserveForm = () => {
             disabled
           />
         </label>
-        <label htmlFor="hotelSelect">
+        <label htmlFor="hotelSelect" className="form-label">
           Hotel:
+          <br />
           <select
             id="hotelSelect"
             name="hotel"
             value={selectedHotel ? selectedHotel.id : 1}
             onChange={handleHotelChange}
+            className="text-input input"
           >
+            {hotels.length === 0 && (
+              <option value="" disabled>
+                There are no hotels. Add a hotel first!
+              </option>
+            )}
             {hotels.map((hotel) => (
               <option value={hotel.id} key={hotel.id}>
                 {hotel.name}
@@ -97,18 +105,21 @@ const ReserveForm = () => {
           </select>
         </label>
 
-        <label htmlFor="startDateInput">
+        <label htmlFor="startDateInput" className="form-label">
           Start Date:
+          <br />
           <input
             type="date"
             id="startDateInput"
             name="dateInput"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
+            className="text-input input"
           />
         </label>
-        <label htmlFor="durationInput">
+        <label htmlFor="durationInput" className="form-label">
           Duration (days):
+          <br />
           <input
             type="number"
             id="durationInput"

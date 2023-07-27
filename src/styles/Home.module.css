@@ -3,6 +3,15 @@
   margin-top: 3%;
 }
 
+.loadingText,
+.noHotelsText {
+  font-size: 18px;
+  font-weight: 600;
+  align-self: center;
+  padding: 10% 36%;
+  color: #504c4c;
+}
+
 .hotelimg {
   width: 50% !important;
   height: 300px;
@@ -104,6 +113,12 @@ a {
 
 .svgicon {
   color: white;
+}
+
+.centeredMessages {
+  font-size: 18px;
+  font-weight: 600;
+  color: #504c4c;
 }
 
 @media screen and (min-width: 769px) {
