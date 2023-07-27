@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteHotel matches snapshot 1`] = `
+<div
+  className="main-del-container"
+>
+  <div
+    className="delete-container"
+  >
+    <img
+      alt="Hotel 1"
+      className="delete-image"
+      src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--16d773ef08a1a413ca00a961f9b8696c29001642/image1.jpg"
+    />
+    <h3
+      className="delete-name"
+    >
+      Hotel 1
+    </h3>
+    <button
+      className="delete-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      DELETE
+    </button>
+  </div>
+</div>
+`;
